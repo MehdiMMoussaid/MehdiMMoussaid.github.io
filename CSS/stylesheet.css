@@ -27,11 +27,11 @@ nav {
     left: 0;
     width: 100%;
     padding: 10px 50px;
-    display: flex;;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 78;
-    background-color: rgb(17, 16, 16);
+    background-color: rgba(255, 255, 255);
     background-blend-mode: multiply; 
     list-style: none;
 }
@@ -74,6 +74,7 @@ nav {
 }
 
 #logo {
+    filter: invert(100%);
 	width: 75px;
 	height: 75px;
     position: absolute;
@@ -84,13 +85,15 @@ nav {
 
 
 nav .logo {
+    filter: invert(100%);
     color: whitesmoke;
     width: 75px;
 	height: 75px;
     text-decoration: none;
-    font-family: "Nabla", system-ui;
+    font-family: "Helvetica", system-ui;
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-size: 32px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -124,7 +127,7 @@ nav ul li a {
     padding: 6px 15px;
     font-family: 'Archivo Narrow';
     font-weight: 700;
-    color: rgb(242, 236, 236);
+    color: rgb(19, 18, 18);
 }
 
    nav ul li a:hover,
@@ -144,17 +147,22 @@ nav ul li a {
 
 .promo-bar-text {
     width: 100%;
-    font-weight: 500;
+    font-weight: 700;
+    font-size:  11px;
     display: flex;
     color: whitesmoke;
     justify-content: center;
     align-items: center;
-    font-family: 'Archivo Narrow';
+    font-family: 'Helvetica';
     background-image: none;
 }
 
 .active {
-    color: rgb(5, 255, 51);
+    color: rgb(48, 48, 48);
+}
+
+.cart-icon {
+    color: whitesmoke;
 }
 
 #section1 {
@@ -168,7 +176,7 @@ nav ul li a {
 }
 
 #section2 {
-    background-image: url("kobe.jpg");
+    background-image: url(I);
     background-position-y: 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -226,7 +234,9 @@ nav ul li a {
 #store ul {
     list-style: none;
     text-decoration: none;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
     display: flex;
     width: 100%;
     margin: 0 auto;
@@ -240,6 +250,12 @@ nav ul li a {
     max-width: none;
     min-width: 500px;
 }
+
+#store ul::-webkit-scrollbar { height: 8px; padding-top: 4px;}
+#store ul::-webkit-scrollbar-track { background: #f1f1f1; }
+#store ul::-webkit-scrollbar-thumb { background: #111; border-radius: 4px;}
+#store ul::-webkit-scrollbar-thumb:hover { background: #444; }
+
 .collection-title {
     font-family: "Archivo Narrow";
     font-size: 24px;
@@ -741,9 +757,11 @@ img {
 
     .mobile-menu ul li a {
         transition: 0.3s;
+        color: rgb(131, 127, 127)
     }
 
     .mobile-menu-icon {
+        color: black;
         display: block;
         position: relative;
         right: 30px;
@@ -755,15 +773,23 @@ img {
 
     #store ul {
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: space-between;
         gap: 10px;
+        white-space: nowrap;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        max-height: 360px;
     }
+
+
 
     #store ul li {
         flex: 0 0 100%;
+        white-space: nowrap;
         min-width: 0;
         max-width: calc(50% - 5px);
+        scroll-snap-align: start;
     }
 
     .product-box {
@@ -793,6 +819,7 @@ img {
         background-color: rgba(255, 255, 255, 0);
         margin-right: 10px;
         margin-left: 10px;
+        top: 18%;
         white-space: wrap;
         text-align: center;
     }
@@ -805,12 +832,42 @@ img {
     }
 
     #btn {
-        transform: translateY(148px);
+        top: 52%;
     }
 
     .product-title {
         font-size:14px;
     }
+
+    .footer-list-items {
+        position: absolute;
+        font-size: 11px;
+        left: 55%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width:100% auto;
+        padding-left: 10px;
+    }
+
+    .footer-list-items li{
+        display: block;
+        padding-left: 0px;
+    }
+
+    .footer-list-items li a{
+        display: block;
+        padding-left: 4px 0; 
+    }
+
+    .socials-list {
+        left: 18%;
+    }
+
+
+    
+
 }
 
 @media(hover: none), (max-width: 768px){
