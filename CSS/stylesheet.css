@@ -815,24 +815,26 @@ img {
     }
 
     #main-title {
-        font-size:4em;
+        font-size: clamp(20px, 7vw, 42px);
+        line-height: 1.05;
         background-color: rgba(255, 255, 255, 0);
-        margin-right: 10px;
-        margin-left: 10px;
         top: 18%;
+        width: 90%;
         white-space: wrap;
         text-align: center;
     }
 
     #main-title:hover {
-        font-size: 4em;
-        margin-right: 10px;
-        margin-left: 10px;
+        font-size: clamp(20px, 7vw, 42px);
+        line-height: 1.05;    
         white-space: wrap;
     }
 
     #btn {
         top: 52%;
+        font-size: 1.1em;
+        padding: 8px 20px;
+        white-space: normal;
     }
 
     .product-title {
