@@ -833,8 +833,12 @@ img {
     #btn {
         top: 52%;
         font-size: 1.1em;
+        line-height: 1.2;
         padding: 8px 20px;
         white-space: normal;
+        transform: translateY(70px);
+        white-space: nowrap;
+        max-width: 90%;
     }
 
     .product-title {
