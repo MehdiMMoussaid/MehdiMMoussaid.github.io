@@ -176,7 +176,7 @@ nav ul li a {
 }
 
 #section2 {
-    background-image: url(../Images/521329326.webp);
+    background-image: url(../images/nike1.webp);
     background-position-y: 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -370,6 +370,8 @@ nav ul li a {
 
 .image-container:hover .product-image-main {
     opacity: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
 }
 
@@ -750,7 +752,7 @@ img {
     padding-top: 10px;
     padding-bottom: 50px;
     gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
 }
 
 .store-grid-section {
@@ -786,6 +788,38 @@ img {
     display: flex;
     width: 100%;
     pointer-events: none;
+}
+
+.store-title-wrapper {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+}
+
+.store-sort-btn {
+    font-size: small;
+    white-space: nowrap;
+    padding-right: 20px;
+    pointer-events: none;
+}
+
+.store-image-container:hover .product-carousel {
+  visibility: visible;
+}
+
+.store-image-container:hover .product-image-main {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.store-image-container:hover .product-arrow-button-prev,
+.store-image-container:hover .product-arrow-button-next {
+  opacity: 1;
+}
+
+/* main image needs a height for object-fit: cover to work */
+.product-image-main {
+  height: 100%;
 }
 
 @media (max-width: 768px){
@@ -874,8 +908,7 @@ img {
     }
 
     #main-title {
-        font-size: clamp(20px, 7vw, 42px);
-        line-height: 1.05;
+        font-size: 4em;
         background-color: rgba(255, 255, 255, 0);
         top: 18%;
         width: 90%;
@@ -884,18 +917,17 @@ img {
     }
 
     #main-title:hover {
-        font-size: clamp(20px, 7vw, 42px);
-        line-height: 1.05;    
+        font-size: 4em;  
         white-space: wrap;
     }
 
     #btn {
         top: 52%;
-        font-size: 1.1em;
+        font-size: 1.5em;
         line-height: 1.2;
         padding: 8px 20px;
         white-space: normal;
-        transform: translateY(70px);
+        transform: translateY(89px);
         white-space: nowrap;
         max-width: 90%;
     }
@@ -930,7 +962,16 @@ img {
         left: 18%;
     }
 
-
+    .store-grid-section
+    .store-product-grid {
+        display: grid;
+        padding-right: 30px;
+        padding-left: 30px;
+        padding-top: 10px;
+        padding-bottom: 50px;
+        gap: 10px;
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+    }
     
 
 }

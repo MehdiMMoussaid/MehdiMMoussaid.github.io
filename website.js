@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const productBoxes = document.querySelectorAll(".product-box");
+    const productBoxes = document.querySelectorAll(".product-box, .store-product");
 
     productBoxes.forEach(function (box) {
 
