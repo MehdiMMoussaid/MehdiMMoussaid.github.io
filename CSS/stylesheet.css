@@ -150,6 +150,7 @@ nav ul li a {
     font-weight: 700;
     font-size:  11px;
     display: flex;
+    white-space: nowrap;
     color: whitesmoke;
     justify-content: center;
     align-items: center;
@@ -176,7 +177,7 @@ nav ul li a {
 }
 
 #section2 {
-    background-image: url(../images/nike1.webp);
+    background-image: url(../Images/nike1.webp);
     background-position-y: 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -862,23 +863,28 @@ img {
         display: none;
     }
 
+    #store {
+        padding: 20px 0;
+    }
     #store ul {
         flex-direction: row;
         flex-wrap: nowrap;
-
-        justify-content: space-between;
+        padding-left: 15px;
+        padding-bottom: 10px;
+        justify-content: flex-start;
         overflow-y: hidden;
         overflow-x: scroll;
         min-height: 340px;
+        scroll-padding: 0 16px;
     }
 
 
 
     #store ul li {
-        flex: 0 0 100%;
+        flex: 0 0 84%;
         white-space: normal;
         min-width: 0; 
-        max-width: 360px;
+        max-width: 320px;
         scroll-snap-align: start;
     }
 
@@ -887,8 +893,8 @@ img {
     }
 
     .product-box {
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+    min-width: 0;
+    width: 100%;
     }
 
 
@@ -896,7 +902,15 @@ img {
         overflow: hidden;
     }
     footer ul li a {
-        font-size: 2em;
+        font-size: 1.6em;
+        padding-right: 10px;
+    }
+
+    .footer-logo {
+        height: 200px;
+        width: 200px;
+        padding-left: 0;
+        margin: 0;
     }
 
     .promotion-text {
@@ -934,16 +948,21 @@ img {
         font-size:14px;
     }
 
+    #footer-list {
+        position: static;
+        flex-direction: row;
+    }
+
     .footer-list-items {
-        position: absolute;
+        position:static;
         font-size: 11px;
-        left: 55%;
+        left: auto;
+        width:100%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
-        width:100% auto;
-        padding-left: 10px;
+        padding-left: 0;
     }
 
     .footer-list-items li{
@@ -957,7 +976,20 @@ img {
     }
 
     .socials-list {
-        left: 18%;
+        display: flex;
+        position: static;
+        width: 100%;
+        padding-top: 0;
+        align-items: center;
+        bottom: 70px;
+        right: 10%;
+        height: 7vh;
+    }
+
+    .socials-list-item{
+        position: relative;
+        height: 14px;
+        
     }
 
     .store-grid-section
@@ -971,7 +1003,9 @@ img {
         grid-template-columns: repeat(2, minmax(250px, 1fr));
     }
     
-
+    #section1 {
+        max-height: 50vh;
+    }
 }
 
 @media(hover: none), (max-width: 768px){
