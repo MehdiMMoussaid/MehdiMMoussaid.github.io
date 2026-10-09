@@ -573,13 +573,23 @@ nav ul li a {
 
 }
 
-#store-title {
+#store-title-section {
     position: relative;
     height: 30vh;
     width: 100%;
     display: flex;
     align-items: center;
     overflow: hidden;
+}
+
+#store-title {
+    position: absolute;
+    white-space: none;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    color: whitesmoke;
+
 }
 
 .video {
@@ -730,6 +740,52 @@ img {
 
 .h3 {
     font-size: 24px;
+}
+
+.store-grid-section
+.store-product-grid {
+    display: grid;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.store-grid-section {
+    background-color: whitesmoke;
+}
+
+.store-image-container {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+
+.store-product {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.store-subtitle {
+    font-family: "Archivo Narrow";
+    font-size: 24px;
+    padding: 15px;
+    display: flex;
+    width: 100%;
+    pointer-events: none;
 }
 
 @media (max-width: 768px){
@@ -883,8 +939,8 @@ img {
     .product-arrow-button-next,
     .product-arrow-button-prev {
         opacity: 1;
-        height: 28px;
-        width: 28px;
+        height: 20px;
+        width: 20px;
     }
 
     .product-carousel{
