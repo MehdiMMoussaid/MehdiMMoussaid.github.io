@@ -213,8 +213,8 @@ nav ul li a {
 #section2-2 {
     background-color: whitesmoke;
     width: 100%;
-    height: 30vh; 
-    padding: 100px;
+    height: auto;
+    padding: 10px;
     display: flex;
     align-items: center;
 }
@@ -268,7 +268,7 @@ nav ul li a {
 
 #about-title {
     display: flex;
-    padding-left: 20%;
+    padding-right: 30%;
     font-family: "Archivo Narrow";
     color: whitesmoke;
     font-size: 72px;
@@ -449,7 +449,7 @@ nav ul li a {
     color: black;
     font-family: 'Helvetica';
     font-size: 16px;
-    display: flex;
+    display: block;
     justify-content: left;
 }
 
@@ -578,6 +578,7 @@ nav ul li a {
 
 #store-title-section {
     position: relative;
+    background-color: white;
     height: 30vh;
     width: 100%;
     display: flex;
@@ -591,7 +592,7 @@ nav ul li a {
     left: 50%;
     transform: translateX(-50%);
     font-size: 50px;
-    color: whitesmoke;
+    color: black;
 
 }
 
@@ -753,11 +754,14 @@ img {
     padding-top: 10px;
     padding-bottom: 50px;
     gap: 10px;
-    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    max-width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    list-style: none;
 }
 
 .store-grid-section {
     background-color: whitesmoke;
+    max-width: 100%;
 }
 
 .store-image-container {
@@ -771,6 +775,7 @@ img {
 
 .store-product {
     display: flex;
+    min-height: 100%;
     flex-direction: column;
     padding: 10px;
     background-color: rgb(255, 255, 255);
@@ -1000,7 +1005,7 @@ img {
         padding-top: 10px;
         padding-bottom: 50px;
         gap: 10px;
-        grid-template-columns: repeat(2, minmax(250px, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     
     #section1 {
@@ -1020,3 +1025,4 @@ img {
         opacity: 1;
     }
 }
+
