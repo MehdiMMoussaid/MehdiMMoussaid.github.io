@@ -172,12 +172,13 @@ nav ul li a {
     height: 82vh; 
     padding: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center ;
     align-items: center;
 }
 
 #section2 {
-    background-image: url(../Images/nike1.webp);
+    background-image: url();
     background-position-y: 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -352,6 +353,28 @@ nav ul li a {
     opacity: 0;
 }
 
+.slideshow-image {
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 90%;
+    object-fit: cover;
+    z-index: -1;
+    border-radius: 20px;
+    padding: 10px;
+}
+.slideshow-image.is-active{
+    opacity: 1;
+}
+
 .image-container img{
     position: absolute;
     top: 0;
@@ -381,6 +404,7 @@ nav ul li a {
 .image-container:hover .product-arrow-button-prev {
     opacity: 1;
 }
+
 
 .title-container {
     padding-left: 25px;
@@ -483,7 +507,7 @@ nav ul li a {
     font-family: 'Archivo Narrow';
     font-weight: 500;
     z-index: 9;
-    transform: translateY(100px)
+    transform: translateY(320px);
 }
 
 .button-wrapper {
@@ -505,6 +529,7 @@ nav ul li a {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .button2 {
@@ -514,6 +539,7 @@ nav ul li a {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .image-link-overlay {
@@ -546,6 +572,50 @@ nav ul li a {
     cursor: pointer;
 
     transition: opacity 0.3s ease;
+}
+
+.slideshow-container {
+    height: 100%;
+    width: 100%;
+}
+
+.slideshow-arrow-button-prev,
+.slideshow-arrow-button-next {
+    position: absolute;
+
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 360px;
+    background-color:whitesmoke;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    opacity: 1;
+
+    z-index: 10;
+
+    cursor: pointer;
+
+    transition: opacity 0.3s ease;
+}
+
+.slideshow-arrow-button-prev {
+    bottom: 10px;
+    right: 20%;
+    z-index: 99;
+    background-image: url("chevron-left.png");
+}
+
+
+.slideshow-arrow-button-next {
+    bottom: 10px;
+    z-index: 99;
+    right: 10px;
+    background-image: url("chevron-right.png");
 }
 
 .product-arrow-button-prev {
@@ -619,9 +689,11 @@ nav ul li a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  max-height: 90%;
   object-fit: cover;
   z-index: -1;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 audio{
@@ -757,6 +829,7 @@ img {
     padding-top: 10px;
     padding-bottom: 50px;
     gap: 10px;
+    border: 1px solid black;
     max-width: 100%;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     list-style: none;
@@ -801,6 +874,8 @@ img {
 
 .store-title-wrapper {
     width: 100%;
+    position: sticky;
+    top: 0;
     display: inline-flex;
     align-items: center;
 }
@@ -1079,6 +1154,14 @@ img {
         display: none;
     }
 
+    .store-title-wrapper {
+        width: 100%;
+        position: sticky;
+        top: 0;
+        display: inline-flex;
+        align-items: center;
+    }
+
     #store {
         padding: 20px 0;
     }
@@ -1143,6 +1226,8 @@ img {
     }
 
     #section1 {
+        flex-direction: column;
+        align-items: center;
         min-height: 83vh;
     }
 
@@ -1161,12 +1246,12 @@ img {
     }
 
     #btn {
-        top: 52%;
-        font-size: 1.1em;
+        font-size: 1.3em;
         white-space: normal;
         padding: 8px 20px;
         text-align: center;
-        transform: translateY(89px);
+        max-width: 90%;
+        margin-top: 28%;
         }
 
     .product-title {
@@ -1368,6 +1453,35 @@ img {
     font-weight: 400;
     color: rgba(0, 0, 0, 0.9);
 
+}
+
+.slideshow-image {
+    opacity: 0;
+    inset: 0;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 500px;
+    object-fit: cover;
+    z-index: -1;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#video {
+  position: fixed;
+  transition: opacity 0.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 90%;
+  object-fit: cover;
+  z-index: -1;
+  border-radius: 20px;
+  padding: 10px;
 }
 }
 

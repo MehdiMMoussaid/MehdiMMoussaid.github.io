@@ -92,7 +92,43 @@ document.addEventListener("DOMContentLoaded", function() {
 
     mobileMenuClose.addEventListener("click", closeMenu);
 
+
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const slideshowContainer = document.querySelector(".slideshow-container");
+
+    const slideshowImages = slideshowContainer.querySelectorAll(".slideshow-image, #video"); 
+    const PrevBtn = document.querySelector(".slideshow-arrow-button-prev");
+    const NextBtn = document.querySelector(".slideshow-arrow-button-next");
+    
+    let currentImage = 0;
+
+    slideshowImages[0].classList.add("is-active");
+
+    function updateImage() {
+        slideshowImages.forEach(function(img, i) {
+            if(currentImage === i){
+                img.classList.add("is-active");
+            } else {
+                img.classList.remove("is-active");
+            }
+        });
+    }
+
+        NextBtn.addEventListener("click", function() {
+            currentImage = (currentImage + 1) % slideshowImages.length;
+            updateImage();
+        });
+
+        PrevBtn.addEventListener("click", function() {
+            currentImage = (currentImage - 1 + slideshowImages.length) % slideshowImages.length;
+            updateImage()
+        });
+    
+})
+
+
+
 
 var collapsible = document.getElementsByClassName("collapsible");
 var i;
