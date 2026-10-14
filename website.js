@@ -152,3 +152,39 @@ for (i = 0; i < collapsible.length; i++) {
         }
     });
 }
+
+const sortBtn = document.querySelector(".store-sort-btn"); 
+const sortMenu = document.querySelector("#sort-menu");
+const sortCloseBtn = document.querySelector(".sort-menu-close")
+
+sortBtn.addEventListener("click", function() {
+    function openSortMenu() {
+        sortMenu.style.width = "250px";
+    }
+    openSortMenu();
+});
+
+sortCloseBtn.addEventListener("click", function(){
+    function closeSortMenu() {
+       sortMenu.style.width = "0px";
+    }
+    closeSortMenu();
+});
+
+const cartBtn = document.querySelector(".cart-icon");
+const cartMenu = document.querySelector("#cart-menu");
+const cartCloseBtn = document.querySelector(".cart-menu-close");
+
+cartBtn.addEventListener("click", function(){
+    function openCartMenu() {
+       cartMenu.style.width = "300px";
+    }
+    openCartMenu();
+});
+
+cartCloseBtn.addEventListener("click", function(){
+    function closeCartMenu() {
+       cartMenu.style.width = "0px";
+    }
+    closeCartMenu();
+});
