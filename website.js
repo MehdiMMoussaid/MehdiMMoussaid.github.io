@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const productBoxes = document.querySelectorAll(".product-box, .store-product, .product-box-product-page");
 

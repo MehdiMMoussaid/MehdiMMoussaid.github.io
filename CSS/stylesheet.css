@@ -22,7 +22,7 @@ body {
 
 nav {
     position: sticky;
-    min-height: 80px;
+    min-height: 52px;
     top: 0;
     left: 0;
     width: 100%;
@@ -37,6 +37,8 @@ nav {
 }
 
 .main-nav {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
 }
@@ -75,7 +77,7 @@ nav {
 }
 
 #logo {
-    filter: invert(100%);
+    filter: invert(10%);
 	width: 75px;
 	height: 75px;
     position: absolute;
@@ -120,29 +122,30 @@ nav ul {
 
 nav ul li {
     list-style: none;
-    margin-left: 20px; 
+    margin-left: 38px; 
 }
 
 nav ul li a {
     text-decoration: none; 
     padding: 6px 15px;
-    font-family: 'Archivo Narrow';
+    font-family: 'Helvetica';
+    font-size: 12px;
     font-weight: 600;
     color: rgb(39, 38, 38);
 }
 
    nav ul li a:hover,
    nav ul li a:active {
-    color: rgb(255, 255, 255);
-    background-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 .promo-bar {
-    position: relative;
+    top: 0;
+    z-index: 80;
     width: 100%;
     min-height: 30px;
     z-index: 78;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(14, 13, 13);
     background-image: none;
 }
 
@@ -152,7 +155,7 @@ nav ul li a {
     font-size:  11px;
     display: flex;
     white-space: nowrap;
-    color: whitesmoke;
+    color: rgb(250, 248, 248);
     justify-content: center;
     align-items: center;
     font-family: 'Helvetica';
@@ -202,13 +205,22 @@ nav ul li a {
     position:relative;
     background-color: rgb(255, 255, 255);
     width: 100%;
-    min-height: 44vh;
-
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    gap: 10%;
     align-items: center;
     margin-top: 20vh;
+}
+
+#section3 > div{
+    display: contents;
+}
+
+.section3-row {
+    display: flex;
+    flex-direction: row;
 }
 
 #section1-2 {
@@ -276,6 +288,11 @@ nav ul li a {
     display: flex;
     width: 100%;
     pointer-events: none;
+}
+
+.image {
+    width: 22%;
+    height: auto;
 }
 
 #about-title {
@@ -346,7 +363,6 @@ nav ul li a {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
     visibility: hidden;
@@ -423,7 +439,7 @@ nav ul li a {
     color: rgb(16, 15, 15);
     font-family: "Archivo Narrow";
     font-weight: 700;
-    font-size: 100;
+    font-size: 16px;
     align-items: center;
     line-height: 1.06em;
     text-decoration: none;
@@ -434,9 +450,17 @@ nav ul li a {
 
 .price-tag {
     font-family:'Helvetica';
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.9);
+    padding-top: 0px;
+}
+
+.old-price {
+    font-family:'Helvetica';
+    font-size: 12px;
+    font-weight: 400;
+    display: none;
     padding-top: 0px;
 }
 
@@ -615,14 +639,14 @@ nav ul li a {
 .slideshow-arrow-button-prev {
     bottom: 10px;
     right: 20%;
-    z-index: 99;
+    z-index: 77;
     background-image: url("chevron-left.png");
 }
 
 
 .slideshow-arrow-button-next {
     bottom: 10px;
-    z-index: 99;
+    z-index: 77;
     right: 10px;
     background-image: url("chevron-right.png");
 }
@@ -673,7 +697,8 @@ nav ul li a {
     white-space: none;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 50px;
+    font-size: 32px;
+    font-weight: 700;
     color: black;
 
 }
@@ -739,6 +764,8 @@ footer {
     flex-direction: row;
     align-items: center;
     width: 100%;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
 .footer-list-items {
@@ -769,7 +796,7 @@ footer ul li {
 #footer-bg-text {
     font-family: 'Archivo Narrow';
     font-weight: 700;
-    color: rgb(255, 255, 255, 0.1);
+    color: rgba(14, 13, 13, 0);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -823,16 +850,11 @@ h3 {
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
 }
 
 img {
     max-width: 100%;
     height: auto;
-}
-
-.product-title {
-    font-size: 16px;
 }
 
 .h3 {
@@ -864,7 +886,7 @@ img {
     min-width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    background-color: white;
+    background-color:rgb(230, 230, 230);
 }
 
 
@@ -883,8 +905,9 @@ img {
 
 .store-subtitle {
     font-family: "Archivo Narrow";
-    font-size: 24px;
+    font-size: 20px;
     padding: 15px;
+    padding-left: 100px;
     display: flex;
     width: 100%;
     pointer-events: none;
@@ -893,20 +916,38 @@ img {
 .store-title-wrapper {
     width: 100%;
     position: sticky;
-    top: 0;
+    top: 52px;
+    width: 100%;
+    z-index: 77;
     display: inline-flex;
     align-items: center;
+    background-color: white;
 }
 
 .store-sort-btn {
-    font-size: small;
+    font-size: 11px;
     color: rgb(0, 0, 0);
     white-space: nowrap;
     padding: 8px 20px;
-    margin-right: 20px;
+    margin-right: 55px;
     background-color: whitesmoke;
     cursor: pointer;
+    border: 1px solid black;
 }
+
+.sort-menu-title {
+    font-family: "Archivo Narrow";
+    font-size: 16px;
+    color: white;
+    padding: 15px;
+    padding-left: 100px;
+    display: flex;
+    position: absolute;
+    top: 67px;
+    width: 100%;
+    pointer-events: none;
+}
+
 
 .store-sort-btn:hover {
     background-color:rgb(8, 8, 8);
@@ -926,6 +967,19 @@ img {
     background-color: rgb(0, 0, 0);
     height: 100vh;
     transition: 0.3s;
+}
+
+.cart-menu-title {
+    font-family: "Archivo Narrow";
+    font-size: 16px;
+    color: white;
+    padding: 15px;
+    padding-left: 100px;
+    display: flex;
+    position: absolute;
+    top: 67px;
+    width: 100%;
+    pointer-events: none;
 }
 
 #cart-menu {
@@ -1229,7 +1283,7 @@ img {
     .store-title-wrapper {
         width: 100%;
         position: sticky;
-        top: 0;
+        top: 80px;
         display: inline-flex;
         align-items: center;
     }
@@ -1327,7 +1381,7 @@ img {
         }
 
     .product-title {
-        font-size:14px;
+        font-size:11px;
     }
 
     #footer-list {
@@ -1533,7 +1587,7 @@ img {
     object-fit: cover;
     transition: opacity 0.5s ease;
     position: fixed;
-    top: 0;
+    top: 25;
     left: 0;
     width: 100%;
     min-height: 90%;
@@ -1560,7 +1614,7 @@ img {
 @media(hover: none), (max-width: 768px){
     .product-arrow-button-next,
     .product-arrow-button-prev {
-        opacity: 1;
+        opacity: 1 b ;
         height: 20px;
         width: 20px;
         padding: 0 0 0 0;
