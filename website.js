@@ -64,8 +64,9 @@ document.addEventListener("DOMContentLoaded", function() {
     function checkWidth() {
         const viewportWidth = window.innerWidth;
         if (viewportWidth < 768) {
-            mobileMenu.classList.add("is-active");
-            mobileMenu.style.display = "";
+    mobileMenuIcon.style.display = "block";
+    mobileMenu.classList.add("is-active");
+    mobileMenu.style.display = "";
         } else {
             mobileMenu.classList.remove("is-active");
             mobileMenu.style.width = "0";
@@ -122,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         caption.textContent = slideshowImages[currentImage].dataset.caption || "";
         slideTitle.textContent = slideshowImages[currentImage].dataset.slidetitle || "";
+        slideTitle.dataset.text = slideTitle.textContent;
         slideNum.textContent = `Slide ${currentImage + 1} / ${slideshowImages.length}`;
         slideshowImages.forEach(function(img, i) {
             if(currentImage === i){
