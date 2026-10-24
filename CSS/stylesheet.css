@@ -211,7 +211,6 @@ nav ul li a {
     justify-content: center;
     gap: 10%;
     align-items: center;
-    margin-top: 20vh;
 }
 
 #section3 > div{
@@ -225,7 +224,7 @@ nav ul li a {
 
 #section1-2 {
     width: 100%;
-    height: 30vh; 
+    height: 20vh; 
     padding: 100px;
     display: flex;
     justify-content: center ;
@@ -463,6 +462,16 @@ nav ul li a {
     display: none;
     padding-top: 0px;
 }
+@keyframes riseUp {
+    0% {
+        transform: translate(-50%, 150%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
 
 #main-title {
     position: absolute;
@@ -475,6 +484,44 @@ nav ul li a {
     font-family: "Archivo Narrow";
 }
 
+.slide-title {
+    position: absolute;
+    color: whitesmoke;
+    white-space: nowrap;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 5vw;
+    z-index: 9;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Archivo Narrow";
+    cursor: pointer;
+    animation: riseUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.slide-caption {
+    position: absolute;
+    color: whitesmoke;
+    padding: 8px;
+    font-size: 11px;
+    z-index: 9;
+    left: 10%;
+    white-space: pre-line;
+    bottom: 10%;
+    font-family: "Archivo Narrow";
+}
+
+.slide-number {
+    position: absolute;
+    color: whitesmoke;
+    padding: 8px;
+    font-size: 12px;
+    z-index: 9;
+    right: 10%;
+    white-space: pre-line;
+    bottom: 10%;
+    font-family: "Archivo Narrow";
+}
 
 .promotion-text {
     position: relative;
@@ -484,6 +531,15 @@ nav ul li a {
     z-index: 9;
     padding-top:50px;
     float: left;
+}
+
+.mm-text {
+    margin-top: 100px;
+    color: rgb(253, 253, 253);
+    white-space: nowrap;
+    font-size: 11px;
+    font-family: 'Helvetica';
+    z-index: 9;
 }
 
 .text3 {
@@ -519,7 +575,7 @@ nav ul li a {
     padding-left: 55px;
 }
 
-#main-title:hover {
+.slide-title:hover {
     position: absolute;
     color: rgb(238, 238, 238);
     white-space: nowrap;
@@ -529,6 +585,10 @@ nav ul li a {
 }
 
 #btn {
+    position: absolute;
+    top: calc(42% + 70px);
+    left: 50%;
+    transform: translateX(-50%);
     text-decoration: none;
     display: inline-block;
     padding: 8px 30px;
@@ -539,8 +599,7 @@ nav ul li a {
     font-family: 'Archivo Narrow';
     font-weight: 500;
     z-index: 9;
-    margin-top: 12%;
-    transform: translateY(320px);
+    animation: riseUp 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .button-wrapper {
@@ -614,14 +673,14 @@ nav ul li a {
 
 .slideshow-arrow-button-prev,
 .slideshow-arrow-button-next {
+
     position: absolute;
-
-
     width: 40px;
     height: 40px;
 
-    border-radius: 360px;
-    background-color:whitesmoke;
+    border: 2px;
+    border-radius: 0px;
+    background-color:rgb(255, 255, 255);
 
     background-repeat: no-repeat;
     background-position: center;
@@ -636,8 +695,14 @@ nav ul li a {
     transition: opacity 0.3s ease;
 }
 
+.slideshow-arrow-button-prev:hover,
+.slideshow-arrow-button-next:hover {
+    background-color: rgb(0, 255, 42);
+    color: whitesmoke;
+}
+
 .slideshow-arrow-button-prev {
-    bottom: 10px;
+    bottom: 12%;
     right: 20%;
     z-index: 77;
     background-image: url("chevron-left.png");
@@ -645,10 +710,17 @@ nav ul li a {
 
 
 .slideshow-arrow-button-next {
-    bottom: 10px;
+    bottom: 12%;
     z-index: 77;
-    right: 10px;
+    right: 15px;
     background-image: url("chevron-right.png");
+}
+
+.slideshow-button-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 8px solid white;
 }
 
 .product-arrow-button-prev {
@@ -1377,7 +1449,6 @@ img {
         padding: 8px 20px;
         text-align: center;
         max-width: 90%;
-        margin-top: 10%;
         }
 
     .product-title {
@@ -1440,7 +1511,7 @@ img {
     }
     
     #section1 {
-        max-height: 50vh;
+        max-height: 89vh;
     }
 
 
@@ -1590,7 +1661,7 @@ img {
     top: 25;
     left: 0;
     width: 100%;
-    min-height: 90%;
+    min-height: 94%;
     object-fit: cover;
     z-index: -1;
     border-radius: 20px;
@@ -1609,6 +1680,15 @@ img {
   border-radius: 20px;
   padding: 10px;
 }
+
+    .slideshow-arrow-button-next{
+        right: 20px;
+        top: 50%;
+    }
+    .slideshow-arrow-button-prev {
+        left: 20px;
+        top: 50%;
+    }
 }
 
 @media(hover: none), (max-width: 768px){
@@ -1631,4 +1711,3 @@ img {
         opacity: 1;
     }
 }
-

@@ -108,6 +108,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const slideshowContainer = document.querySelector(".slideshow-container");
 
     const slideshowImages = slideshowContainer.querySelectorAll(".slideshow-image, #video"); 
+    const caption = slideshowContainer.querySelector(".slide-caption");
+    const slideNum = slideshowContainer.querySelector(".slide-number")
+    const slideTitle = slideshowContainer.querySelector(".slide-title");
     const PrevBtn = document.querySelector(".slideshow-arrow-button-prev");
     const NextBtn = document.querySelector(".slideshow-arrow-button-next");
     
@@ -116,6 +119,10 @@ document.addEventListener("DOMContentLoaded", function() {
     slideshowImages[0].classList.add("is-active");
 
     function updateImage() {
+        
+        caption.textContent = slideshowImages[currentImage].dataset.caption || "";
+        slideTitle.textContent = slideshowImages[currentImage].dataset.slidetitle || "";
+        slideNum.textContent = `Slide ${currentImage + 1} / ${slideshowImages.length}`;
         slideshowImages.forEach(function(img, i) {
             if(currentImage === i){
                 img.classList.add("is-active");
@@ -124,6 +131,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    updateImage();
 
         NextBtn.addEventListener("click", function() {
             currentImage = (currentImage + 1) % slideshowImages.length;
@@ -159,34 +168,38 @@ const sortBtn = document.querySelector(".store-sort-btn");
 const sortMenu = document.querySelector("#sort-menu");
 const sortCloseBtn = document.querySelector(".sort-menu-close")
 
-sortBtn.addEventListener("click", function() {
-    function openSortMenu() {
-        sortMenu.style.width = "250px";
-    }
-    openSortMenu();
-});
+if (sortBtn && sortMenu && sortCloseBtn) {
+    sortBtn.addEventListener("click", function() {
+        function openSortMenu() {
+            sortMenu.style.width = "250px";
+        }
+        openSortMenu();
+    });
 
-sortCloseBtn.addEventListener("click", function(){
-    function closeSortMenu() {
-       sortMenu.style.width = "0px";
-    }
-    closeSortMenu();
-});
+    sortCloseBtn.addEventListener("click", function(){
+        function closeSortMenu() {
+        sortMenu.style.width = "0px";
+        }
+        closeSortMenu();
+    
 
-const cartBtn = document.querySelector(".cart-icon");
-const cartMenu = document.querySelector("#cart-menu");
-const cartCloseBtn = document.querySelector(".cart-menu-close");
+    });
+}
 
-cartBtn.addEventListener("click", function(){
-    function openCartMenu() {
-       cartMenu.style.width = "300px";
-    }
-    openCartMenu();
-});
+    const cartBtn = document.querySelector(".cart-icon");
+    const cartMenu = document.querySelector("#cart-menu");
+    const cartCloseBtn = document.querySelector(".cart-menu-close");
 
-cartCloseBtn.addEventListener("click", function(){
-    function closeCartMenu() {
-       cartMenu.style.width = "0px";
-    }
-    closeCartMenu();
-});
+    cartBtn.addEventListener("click", function(){
+        function openCartMenu() {
+        cartMenu.style.width = "300px";
+        }
+        openCartMenu();
+    });
+
+    cartCloseBtn.addEventListener("click", function(){
+        function closeCartMenu() {
+        cartMenu.style.width = "0px";
+        }
+        closeCartMenu();
+    });
