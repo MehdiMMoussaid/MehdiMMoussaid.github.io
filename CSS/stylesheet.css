@@ -99,7 +99,7 @@ nav .logo {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    animation: fx-jitterlogo 15s steps(1) infinite;
+    animation: fx-jitterlogo 5s steps(1) infinite;
 }
 
 .footer-logo {
@@ -188,7 +188,7 @@ nav ul li a {
 }
 
 #section2 {
-    background-image: url();
+    background-color: rgba(0, 0, 0, 0.336);
     background-position-y: 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -202,7 +202,7 @@ nav ul li a {
 
 #section3 {
     position:relative;
-    background-color: rgb(54, 52, 52);
+    background-color: rgb(222, 223, 219);
     width: 100%;
     min-height: 60vh;
     display: flex;
@@ -300,8 +300,10 @@ nav ul li a {
     width: 100%;
 }
 
+
 .product-box {
     position: relative;
+    text-align: center;
     background-color: rgb(255, 255, 255);
     height: auto;
     min-width: 350px;
@@ -532,14 +534,14 @@ nav ul li a {
 
 /* 07 Lens-Drift — letters slip in and out of focus, one after another */
 .fx-focus {
-  font: 600 30px/1.1 "JetBrains Mono", monospace;
+  font: 600 4.3em "JetBrains Mono", monospace;
   letter-spacing: .08em;
   color: var(--ink);
 }
 .fx-focus b {
   font-weight: inherit;
   display: inline-block;
-  animation: fx-focus 2.6s ease-in-out infinite;
+  animation: fx-focus 4s ease-in-out infinite;
   animation-delay: calc(var(--i) * .18s);
 }
 @keyframes fx-focus {
@@ -561,6 +563,17 @@ nav ul li a {
         transform: translate(-50%, 0);
         opacity: 1;
     }
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px); /* Starts 60px lower */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    /* Moves to original position */
+  }
 }
 
 /* Colour tokens — override to re-skin the effect:
@@ -663,6 +676,14 @@ nav ul li a {
     color: transparent;
 }
 
+.section3-title-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 .section3-title::after,
 .section3-title::before {
     content: 'CHANGING VISION';
@@ -721,8 +742,25 @@ nav ul li a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  animation: glitch 2s infinite;
+  height: 3em;
+  animation: glitch 4s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(-2px, -2px);
+  color: #0f0;
+  text-shadow: 0 0 5px rgb(255, 230, 0), 0 0 15px rgb(255, 217, 0);
+}
+
+.slide-title::after{
+  content: attr(data-text);
+  position: absolute;
+  font-size: 2em;
+  top: 100%;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  height: 3em;
+  animation: glitch 4s infinite;
+  animation: fx-decoder 3s infinite;
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
   transform: translate(-2px, -2px);
   color: #0f0;
@@ -731,26 +769,37 @@ nav ul li a {
 
 .rain {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background: repeating-linear-gradient(
     0deg,
     rgba(255, 238, 0, 0.1) 0,
     rgba(238, 255, 0, 0.2) 3px,
     transparent 4px
   );
-    inset: 0;
-    object-fit: cover;
-    position: fixed;
-    top: 25;
-    left: 0;
-    width: 100%;
-    min-height: 94%;
-    object-fit: cover;
-    z-index: -1;
-    border-radius: 20px;
-    padding: 10px;
+}
+
+.onScrollReveal{
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.onScrollReveal2{
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 800ms ease, transform 800ms ease;
+}
+
+.onScrollReveal.is-visible {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+.onScrollReveal2.is-visible {
+    opacity: 1;
+    transform: translateY(0)
 }
 
 .slide-caption {
@@ -787,6 +836,24 @@ nav ul li a {
     padding-top:50px;
     float: left;
     animation: fx-jitter 5s steps(1) infinite;
+    
+}
+
+.promotion-text::after {
+  content: attr(data-text);
+  position: absolute;
+  font-size: 4em;
+  font-family: 'ballet';
+  top: 50%;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 3em;
+  animation: glitch 2s infinite;
+  animation: fx-decoder 4s infinite;
+  color: #0f0;
+  text-shadow: 0 0 5px rgb(255, 230, 0), 0 0 15px rgb(255, 217, 0);
+
 }
 
 .mm-text {
@@ -953,8 +1020,9 @@ nav ul li a {
 
 .slideshow-arrow-button-prev:hover,
 .slideshow-arrow-button-next:hover {
-    background-color: rgb(0, 255, 42);
-    color: whitesmoke;
+    color: none;
+    background-color: none;
+    border: 1px solid whitesmoke;
 }
 
 .slideshow-arrow-button-prev {
@@ -996,8 +1064,9 @@ nav ul li a {
 }
 
 #btn:hover {
-    background: limegreen;
+    background: none;
     font-weight: 600;
+    border: 1px solid whitesmoke;
     color: whitesmoke;
     font-size: 1.6em;
     
@@ -1025,11 +1094,34 @@ nav ul li a {
     white-space: none;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 32px;
+    font-size: 75px;
     font-weight: 700;
+    z-index:5;
     color: black;
 
 }
+#store-title::after {
+  content: attr(data-text);
+  position: absolute;
+  font-size: 1.5em;
+  top: 30%;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  height: 3em;
+  animation-iteration-count: 1;
+  animation: fx-decoder 6s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(-2px, -2px);
+          background: linear-gradient(to right, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+        background-clip: text;
+    -webkit-text-fill-color: transparent;
+        color: transparent;
+    white-space: nowrap;
+  text-shadow: 0 0 5px rgb(255, 255, 255), 0 0 15px rgb(255, 252, 252);
+}
+
 
 .about-img {
     max-width: 500px;
@@ -1585,7 +1677,7 @@ img {
     }
 
     .price-tag {
-        font-size: 11px;
+        font-size: 14px;
         padding-left: 10px;
     }
 
@@ -1599,6 +1691,7 @@ img {
     }
 
     .product-title {
+        font-size: 14px;
         padding-left: 10px;
         padding-right: 10px;
         min-height: calc(2em + 20px);
@@ -1713,6 +1806,11 @@ img {
         font-size: 2em;
     }
 
+    .promotion-text::after {
+        font-size: 2em;
+        opacity: 0;
+    }
+
     #section1 {
         flex-direction: column;
         align-items: center;
@@ -1742,9 +1840,11 @@ img {
         }
 
     .product-title {
-        font-size:11px;
-        line-height: 1em;
+        font-size:12px;
+        white-space: wrap;
+        width: 92%;
         padding-top: 14px;
+        padding-right: 0px;
     }
 
     #footer-list {

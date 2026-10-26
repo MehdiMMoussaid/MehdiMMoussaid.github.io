@@ -205,3 +205,18 @@ if (sortBtn && sortMenu && sortCloseBtn) {
         }
         closeCartMenu();
     });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const observer = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {threshold: 0.2});
+
+    document.querySelectorAll(".onScrollReveal, .onScrollReveal2").forEach(function (element) {
+        observer.observe(element);
+    });
+})
