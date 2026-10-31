@@ -20,7 +20,7 @@ body {
 
 nav {
     position: sticky;
-    min-height: 52px;
+    height: 52px;
     top: 0;
     left: 0;
     width: 100%;
@@ -34,12 +34,18 @@ nav {
 }
 
 .main-nav {
+    height: 52px;
     position: sticky;
     background-color: none;
     top: 0;
     display: flex;
     justify-content: space-between;
     transition: 0.3s;
+}
+
+.main-nav.is-hidden { 
+    opacity: 0;
+    height: 0px;
 }
 
 .main-nav.scrolled {
@@ -1100,7 +1106,6 @@ nav ul li a {
 
 #store-title-section {
     position: relative;
-    background-color: white;
     height: 20vh;
     width: 100%;
     display: flex;
@@ -1145,6 +1150,7 @@ nav ul li a {
 .about-img {
     max-width: 500px;
     height: auto;
+    float: left;
     border-radius: 8px;
     padding: 10px;
 }
@@ -1155,7 +1161,7 @@ nav ul li a {
   left: 0;
   width: 90%;
   border-radius: 20px;
-  padding: 10px;
+  padding: 0;
   z-index: -1;
 }
 
@@ -1176,7 +1182,6 @@ nav ul li a {
   object-fit: cover;
   z-index: -1;
   border-radius: 20px;
-  padding: 10px;
 }
 
 audio{

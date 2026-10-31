@@ -1,5 +1,7 @@
 
 
+const currentPage = document.body.getAttribute('data-page');
+
 document.addEventListener("DOMContentLoaded", function () {
     const productBoxes = document.querySelectorAll(".product-box, .store-product, .product-box-product-page");
 
@@ -241,3 +243,32 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("scroll", checkPromoBar, {passive: true});
     checkPromoBar();
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    if (currentPage === 'store') {
+        const navBar = document.querySelector(".main-nav");
+        const storeBar = document.querySelector(".store-title-wrapper");
+        const storeNavHeight = (navBar.offsetHeight + storeBar.offsetHeight);
+
+        let lastScrollY = window.scrollY;
+
+        function reactiveStoreBar() {
+            const currentScrollY = window.scrollY;
+            const scrollingUp = currentScrollY < lastScrollY;
+        
+            if (scrollingUp || currentScrollY <= 0) {
+            navBar.classList.remove("is-hidden");
+            storeBar.style.top = "52px";
+
+        } else {
+            navBar.classList.add("is-hidden");
+            storeBar.style.top = "0px";
+        } 
+
+        lastScrollY = currentScrollY;
+
+        }
+        window.addEventListener("scroll", reactiveStoreBar, {passive: true});
+        reactiveStoreBar();
+    }; 
+})
