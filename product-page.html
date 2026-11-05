@@ -44,14 +44,11 @@
             <p class="cart-menu-title"> YO CART </p>
         </div>
         </nav>
-        <section id="store-title-section">
+        <section id="pp-title-section">
             <h2 id="store-title">VERSE COLLECTIONS</h2>
             <div>
                 <img id="video" src="Images/521329326.webp">
             </div>
-                <video id="video" autoplay muted loop playsinline>
-                    <source src="edit.mp4">
-                </video>
         </section>
         <section class="product-page-section">
                 <div class="product-info">
@@ -140,5 +137,23 @@
             </span>
         </footer>
         <script src="website.js"></script>
+                <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+                        <script>
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            })
+
+            lenis.on('scroll', (e) => {
+                // Handle scroll event
+            })
+
+            function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+            }
+
+            requestAnimationFrame(raf)
+        </script>
         </body>
 </html>            

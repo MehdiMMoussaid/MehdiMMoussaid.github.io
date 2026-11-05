@@ -67,8 +67,7 @@
             </div>
 
         </section>
-        <section id="store">
-            
+        <section id="store" class="onScrollReveal">
             <h2 class="collection-title onScrollReveal">LATEST DROPS</h2>
             <ul class="product-list">
                 <li><article class="product-box onScrollReveal">
@@ -325,5 +324,23 @@
             </span>
         </footer>
         <script src="website.js"></script>
+        <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+        <script>
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            })
+
+            lenis.on('scroll', (e) => {
+                // Handle scroll event
+            })
+
+            function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+            }
+
+            requestAnimationFrame(raf)
+        </script>
         </body>
 </html>           

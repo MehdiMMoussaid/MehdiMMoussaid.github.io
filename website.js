@@ -249,6 +249,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const navBar = document.querySelector(".main-nav");
         const storeBar = document.querySelector(".store-title-wrapper");
         const storeNavHeight = (navBar.offsetHeight + storeBar.offsetHeight);
+        const storeTitle = document.querySelector(".store-subtitle");
 
         let lastScrollY = window.scrollY;
 
@@ -259,10 +260,13 @@ document.addEventListener("DOMContentLoaded", function() {
             if (scrollingUp || currentScrollY <= 0) {
             navBar.classList.remove("is-hidden");
             storeBar.style.top = "52px";
+            storeTitle.style.fontSize = "16px";
+
 
         } else {
             navBar.classList.add("is-hidden");
             storeBar.style.top = "0px";
+            storeTitle.style.fontSize = "14px";
         } 
 
         lastScrollY = currentScrollY;

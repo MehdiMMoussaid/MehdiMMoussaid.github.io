@@ -4,6 +4,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+html, body{
+      overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+  scroll-behavior: auto;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -40,12 +47,13 @@ nav {
     top: 0;
     display: flex;
     justify-content: space-between;
+    transform: translateY(0%);
     transition: 0.3s;
 }
 
 .main-nav.is-hidden { 
     opacity: 0;
-    height: 0px;
+    transform: translateY(-100%);
 }
 
 .main-nav.scrolled {
@@ -205,7 +213,7 @@ nav ul li a {
 #section1 {
     position: relative;
     width: 100%;
-    height: 82vh; 
+    height: 100vh; 
     display: flex;
     flex-direction: column;
     justify-content: center ;
@@ -213,7 +221,9 @@ nav ul li a {
 }
 
 #section2 {
-    background-color: rgba(0, 0, 0, 0.336);
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.596), rgba(41, 41, 41, 0.35)),
+    url("kobe2.webp");
     background-position-y: 25%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -225,6 +235,24 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+
+#store-promo {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.39)),
+    url("../kobe2.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #section3 {
@@ -261,6 +289,7 @@ nav ul li a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 #store {
@@ -313,8 +342,16 @@ nav ul li a {
 }
 
 .image {
-    width: 22%;
-    height: auto;
+    min-width: 50%;
+    min-height: 30vh;
+}
+
+.mini-image {
+    width: 30px;
+    height: 30px;
+    padding-top: 2px;
+    margin-top: 2px;
+    background-color: rgb(233, 230, 230);
 }
 
 #about-title {
@@ -459,10 +496,10 @@ nav ul li a {
 
 .product-title {
     color: rgb(16, 15, 15);
-    font-family: "Archivo Narrow";
+    font-family: "Helvetica";
     font-weight: 700;
     width: 100%;
-    font-size: 16px;
+    font-size: 12px;
     align-items: center;
     line-height: 1.06em;
     text-decoration: none;
@@ -473,8 +510,8 @@ nav ul li a {
 
 .price-tag {
     font-family:'Helvetica';
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 300;
     color: rgba(0, 0, 0, 0.9);
     padding-top: 0px;
     line-height: 1.06em;
@@ -796,7 +833,7 @@ nav ul li a {
 
 .rain {
   position: absolute;
-  height: 110%;
+  height: 195%;
   inset: 0;
   top: -60px;
   z-index: -1;
@@ -1105,6 +1142,17 @@ nav ul li a {
 }
 
 #store-title-section {
+    background: white;
+    position: relative;
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+#pp-title-section {
+    background: white;
     position: relative;
     height: 20vh;
     width: 100%;
@@ -1118,32 +1166,10 @@ nav ul li a {
     white-space: none;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 75px;
+    font-size: 32px;
     font-weight: 700;
     z-index:5;
     color: black;
-
-}
-#store-title::after {
-  content: attr(data-text);
-  position: absolute;
-  font-size: 1.5em;
-  top: 30%;
-  left: 0;
-  z-index: 4;
-  width: 100%;
-  height: 3em;
-  animation-iteration-count: 1;
-  animation: fx-decoder 6s infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-  transform: translate(-2px, -2px);
-          background: linear-gradient(to right, #ffffff, #ffffff);
-    -webkit-background-clip: text;
-        background-clip: text;
-    -webkit-text-fill-color: transparent;
-        color: transparent;
-    white-space: nowrap;
-  text-shadow: 0 0 5px rgb(255, 255, 255), 0 0 15px rgb(255, 252, 252);
 }
 
 
@@ -1315,7 +1341,6 @@ img {
     padding-top: 10px;
     padding-bottom: 50px;
     gap: 10px;
-    border-top: 1px solid rgb(212, 201, 201);
     max-width: 100%;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     list-style: none;
@@ -1357,6 +1382,7 @@ img {
     display: flex;
     width: 100%;
     pointer-events: none;
+    transition: 0.3s;
 }
 
 .store-title-wrapper {
@@ -1371,12 +1397,12 @@ img {
 }
 
 .store-sort-btn {
-    font-size: 11px;
+    font-size: 16px;
     color: rgb(0, 0, 0);
     white-space: nowrap;
     padding: 8px 20px;
     margin-right: 55px;
-    background-color: whitesmoke;
+    background-color: rgb(250, 250, 250);
     cursor: pointer;
     border: 1px solid black;
 }
@@ -1706,6 +1732,13 @@ img {
         bottom: 45%;
     }
 
+    .cart-icon {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    padding-bottom: 0px;
+    }
+
     .price-tag {
         font-size: 14px;
         padding-left: 10px;
@@ -1746,7 +1779,13 @@ img {
     }
 
     #store-title-section {
-        display: none;
+        background: none;
+    }
+
+    
+
+    #store-title {
+        font-size: 21px;
     }
 
     .store-title-wrapper {
@@ -1761,17 +1800,14 @@ img {
     font-size: 10px;
     color: rgb(0, 0, 0);
     white-space: nowrap;
-    padding: 8px 10px;
+    padding: 6px 18px;
     margin-right: 25px;
-    background-color: whitesmoke;
-    cursor: pointer;
-    border: 1px solid black;
 }
 
     .store-subtitle {
     display: block;
     font-family: "Archivo Narrow";
-    font-size: 20px;
+    font-size: 16px;
     padding: 15px;
     padding-left: 25px;
     display: flex;
@@ -1781,8 +1817,10 @@ img {
 
     #store {
         padding: 20px 5px;
-        min-height: 40vh;
+        padding-top: 20%;
+        min-height: 55vh;
     }
+
     #store ul {
         flex-direction: row;
         flex-wrap: nowrap;
@@ -1854,15 +1892,15 @@ img {
     #section1 {
         flex-direction: column;
         align-items: center;
-        min-height: 87vh;
+        min-height: 90vh;
         margin: 0px;
     }
-
+ 
     #section2 {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-height: 40vh;
+        min-height: 43vh;
     }
 
     .slide-title {
@@ -1880,7 +1918,8 @@ img {
     }
 
     #btn {
-        font-size: 1.3em;
+        font-size: 16px;
+        font-weight: 400;
         white-space: normal;
         padding: 8px 20px;
         text-align: center;
@@ -1943,7 +1982,7 @@ img {
     }
     
     #section1 {
-        max-height: 89vh;
+        max-height: 93vh;
     }
 
 
@@ -2132,6 +2171,10 @@ img {
     #section1 {
         padding: 0;
     }
+
+.rain {
+    height: 125%;
+}
 }
 
 @media(hover: none), (max-width: 768px){
@@ -2153,4 +2196,25 @@ img {
     .product-carousel{
         opacity: 1;
     }
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
