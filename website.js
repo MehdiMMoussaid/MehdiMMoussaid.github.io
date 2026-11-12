@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (scrollingUp || currentScrollY <= 0) {
             navBar.classList.remove("is-hidden");
             storeBar.style.top = "52px";
-            storeTitle.style.fontSize = "16px";
+            storeTitle.style.fontSize = "20px";
 
 
         } else {
@@ -278,4 +278,17 @@ document.addEventListener("DOMContentLoaded", function() {
         window.addEventListener("scroll", reactiveStoreBar, {passive: true});
         reactiveStoreBar();
     }; 
+})
+
+const sizeBtn = document.querySelectorAll(".size-buttons")
+const sizeButtons = document.querySelectorAll(".size-buttons");
+
+sizeBtn.forEach(function(button) {
+    button.addEventListener("click", function() {
+        sizeButtons.forEach(function(sizeBtn) {
+            const isActive = sizeBtn === button;
+            sizeBtn.classList.toggle("is-active", isActive)
+            sizeBtn.setAttribute("aria-pressed", sizeBtn.getAttribute("aria-pressed") === "true" ? "false" : "true");
+        })
+    })
 })
