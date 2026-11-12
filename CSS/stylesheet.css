@@ -43,7 +43,6 @@ nav {
 .main-nav {
     height: 52px;
     position: sticky;
-    background-color: none;
     top: 0;
     display: flex;
     justify-content: space-between;
@@ -282,7 +281,7 @@ nav ul li a {
 }
 
 #section2-2 {
-    background-color: whitesmoke;
+    background: linear-gradient(rgba(8, 8, 8, 0.5), rgba(10, 10, 10, 0.521)), url("../image.avif");
     width: 100%;
     height: auto;
     padding: 10px;
@@ -304,6 +303,30 @@ nav ul li a {
     align-items: center;
     padding: 25px 25px 25px 25px;
     box-sizing: border-box;
+}
+
+#collections {
+    background-color: #ffffff;
+    min-height: 60vh;
+    z-index: 2;
+    max-width: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 25px 25px 25px;
+    box-sizing: border-box;
+}
+
+#collections > div {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px 20px 20px;
 }
 
 #store ul {
@@ -352,6 +375,7 @@ nav ul li a {
     padding-top: 2px;
     margin-top: 2px;
     background-color: rgb(233, 230, 230);
+    display: inline-block;
 }
 
 #about-title {
@@ -577,6 +601,7 @@ nav ul li a {
 /* 06 Chromia — brushed-metal letters with a passing sheen */
 .fx-chrome {
   font: 600 clamp(2rem, 8vw, 6rem)/1.1 "Archivo Narrow", "JetBrains Mono" monospace, ;
+  font-size: 10em;
   letter-spacing: .06em;
   background: linear-gradient(105deg,
       color-mix(in srgb, var(--ink) 45%, transparent) 0 38%,
@@ -587,7 +612,7 @@ nav ul li a {
     ) 0 0 / 260% 100%;
   -webkit-background-clip: text;
   background-clip: text;
-  color: rgba(32, 31, 31, 0.603);
+  color: rgba(161, 159, 159, 0.603);
   animation: fx-chrome 2.8s ease-in-out infinite;
 }
 
@@ -833,7 +858,7 @@ nav ul li a {
 
 .rain {
   position: absolute;
-  height: 195%;
+  height: 175%;
   inset: 0;
   top: -60px;
   z-index: -1;
@@ -948,18 +973,19 @@ nav ul li a {
 }
 
 .about-text {
-    color: black;
+    color: rgb(248, 247, 247);
     font-family: 'Helvetica';
     font-size: 16px;
-    display: block;
-    justify-content: left;
+    display: inline-block;
 }
 
 .footer-text {
     color: whitesmoke;
-    font-family: 'Archivo Narrow';
+    font-family: 'Helvetica';
     font-weight: 600;
+    font-size: 9px;
     padding-left: 55px;
+    text-transform: uppercase;
 }
 
 .slide-title:hover {
@@ -1142,7 +1168,6 @@ nav ul li a {
 }
 
 #store-title-section {
-    background: white;
     position: relative;
     height: 20vh;
     width: 100%;
@@ -1175,10 +1200,32 @@ nav ul li a {
 
 .about-img {
     max-width: 500px;
+    display: inline-block;
     height: auto;
-    float: left;
     border-radius: 8px;
     padding: 10px;
+    opacity: 0;
+}
+
+.collections-image {
+    display: block;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    margin: 0 0 20px 0;
+}
+
+.collections-btn {
+    background: black;
+    padding: 13px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 10px;
+        margin: 0px 20px 20px 20px;
 }
 
 .video {
@@ -1200,6 +1247,17 @@ nav ul li a {
 
 
 #video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 89%;
+  object-fit: cover;
+  z-index: -1;
+  border-radius: 20px;
+}
+
+#storebg {
   position: fixed;
   top: 0;
   left: 0;
@@ -1234,7 +1292,6 @@ footer {
     flex-direction: row;
     align-items: center;
     width: 100%;
-    margin-right: 5%;
     margin-left: 5%;
 }
 
@@ -1251,7 +1308,6 @@ footer ul li a {
     font-weight: 600;
     list-style: none;
     color: whitesmoke;
-    padding-left: 20px;
 }
 
 footer ul ul {
@@ -1287,6 +1343,7 @@ footer ul li {
     padding: 0;
     padding-top: 10px;
     width: 100%;
+    gap: 10px;
     align-self: center;
     padding-left: 0px;
 }
@@ -1388,6 +1445,7 @@ img {
 .store-title-wrapper {
     width: 100%;
     position: sticky;
+    margin-top: 45px;
     top: 52px;
     width: 100%;
     z-index: 77;
@@ -1536,7 +1594,7 @@ img {
     display: flex;
     min-height: 10vh;
     height: 100%;
-    padding-bottom: 300px;
+    padding-bottom: 50px;
     align-items: center;
     justify-items: center;
     background-color: white;
@@ -1779,7 +1837,6 @@ img {
     }
 
     #store-title-section {
-        background: none;
     }
 
     
@@ -1796,20 +1853,22 @@ img {
         align-items: center;
     }
 
+
+
     .store-sort-btn {
-    font-size: 10px;
+    font-size: 9px;
     color: rgb(0, 0, 0);
     white-space: nowrap;
-    padding: 6px 18px;
-    margin-right: 25px;
+    padding: 6px 19px;
+    margin-right: 9px;
 }
 
     .store-subtitle {
     display: block;
     font-family: "Archivo Narrow";
     font-size: 16px;
-    padding: 15px;
-    padding-left: 25px;
+    padding-left: 19px;
+    padding-top: 8px;
     display: flex;
     width: 100%;
     pointer-events: none;
@@ -1903,6 +1962,10 @@ img {
         min-height: 43vh;
     }
 
+    #section3 {
+        display: none;
+    }
+
     .slide-title {
         font-size: 3.5em;
         background-color: rgba(255, 255, 255, 0);
@@ -1924,6 +1987,36 @@ img {
         padding: 8px 20px;
         text-align: center;
         }
+
+    #collections {
+    background-color: #ffffff;
+    min-height: 60vh;
+    z-index: 2;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 25px 25px 25px;
+    box-sizing: border-box;
+    }
+
+    .collections-image {
+        min-width: 100%;
+        height: auto;
+        margin: 0;
+        margin: 0 0 20px 0;
+    }
+    #collections > div {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    .fx-chrome {
+        font-size: 4em;
+    }
 
     #footer-list {
         position: static;
@@ -2157,6 +2250,10 @@ img {
   z-index: -1;
   border-radius: 20px;
   padding: 10px;
+}
+
+#storebg {
+    padding-top: 40px;
 }
 
     .slideshow-arrow-button-next{

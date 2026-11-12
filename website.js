@@ -225,19 +225,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const promoBar = document.querySelector(".promo-bar");
-    const promoBarHeight = promoBar.offsetHeight;
+    const promoBarHeight = promoBar?.offsetHeight ?? 16;
     const navBar = document.querySelector(".main-nav")
     function checkPromoBar() {
         if (window.scrollY > promoBarHeight) {
             navBar.classList.add("scrolled");
-            promoBar.classList.add("is-hidden");
-            promoBar.style.height = "0px";
+            promoBar?.classList.add("is-hidden");
+            promoBar?.style && (promoBar.style.height = "0px");
         }
 
         if (window.scrollY <= promoBarHeight) {
-            promoBar.classList.remove("is-hidden");
             navBar.classList.remove("scrolled");
-            promoBar.style.height = "16px";
+            promoBar?.classList.remove("is-hidden");
+            promoBar?.style && (promoBar.style.height = "16px");
+            if (window.scrollY === promoBarHeight) {
+                navBar.classList.remove("scrolled");
+            }
         }
     }
     window.addEventListener("scroll", checkPromoBar, {passive: true});
