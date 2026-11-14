@@ -529,6 +529,7 @@ nav ul li a {
     text-decoration: none;
     list-style: none;
     padding-top: 20px;
+    padding-left: 0;
     text-transform: uppercase;
 }
 
@@ -1220,6 +1221,7 @@ nav ul li a {
     background: black;
     padding: 13px;
     color: #ffffff;
+    z-index: 9;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -1466,17 +1468,34 @@ img {
     border: 1px solid black;
 }
 
+.sort-radio-button {
+    display: flex;
+    font-size: 11px;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    gap: 8px;
+    background-color: white;
+    padding: 26px 14px 22px 14px;
+    margin: 0px 0px 0px 0px;
+    border: 1px solid whitesmoke;
+}
+
 .sort-menu-title {
     font-family: "Archivo Narrow";
     font-size: 16px;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 15px;
-    padding-left: 100px;
+    padding-left: 10%;
     display: flex;
-    position: absolute;
     top: 67px;
     width: 100%;
     pointer-events: none;
+}
+
+.sort-container {
+    border: 1px solid black;
+    width: 85%;
+    height: auto;
 }
 
 
@@ -1495,7 +1514,7 @@ img {
     right: 0;
     overflow-x: hidden;
     top:0;
-    background-color: rgb(0, 0, 0);
+    background-color: whitesmoke;
     height: 100vh;
     transition: 0.3s;
 }
@@ -1508,7 +1527,7 @@ img {
     padding-left: 100px;
     display: flex;
     position: absolute;
-    top: 67px;
+    top: 5%;
     width: 100%;
     pointer-events: none;
 }
@@ -1528,21 +1547,113 @@ img {
     transition: 0.3s;
 }
 
+.cart-btn {
+    position: relative;
+    bottom: -17%;
+    background: rgb(255, 254, 254);
+    padding: 13px;
+    color: #050505;
+    z-index: 9;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 10px;
+        margin: 0px 20px 20px 20px;
+}
+
+.cart-items-list {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: whitesmoke;
+    text-transform: uppercase;
+    min-width: 100%;
+    min-height: 75%;
+    z-index: 8;
+    overflow-y: scroll;
+    top: 15%;
+}
+
+.cart-item {
+    position: relative;
+    display: flex;
+    background-color: rgb(236, 232, 232);
+    margin: 6px;
+    padding: 8px 10px 8px 10px;
+    min-height: 200px;
+    max-height: 200px;
+    width: 100%;
+}
+
+.cart-text {
+    display: block;
+    overflow-x: hidden;
+    white-space: nowrap;
+    font-family: "Helvetica";
+    font-size: 12px;
+    color: black;
+    height: 20px;
+}
+
+.cart-price-text {
+    position: absolute;
+    top: 12%;
+    font-family: "Helvetica";
+    font-size: 12px;
+    color: black;
+}
+
+.cart-item-remove {
+    position: absolute;
+    right: 7%;
+    top: auto;
+    bottom: 8px;
+    right: 10px;
+    height: 20px;
+    color: black;
+    background-color: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cart-item-remove:hover {
+    color:rgb(0, 255, 64)
+}
+
+.cart-empty {
+    font-family: 'Archivo Narrow';
+    color: black;
+    font-size: 24px;
+    position: relative;
+    align-self: center;
+    top: 100px;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+    padding-top: 2px;
+    margin-top: 2px;
+    background-color: rgb(233, 230, 230);
+}
+
 .cart-menu-close {
     display: block;
     color: whitesmoke;
     cursor: pointer;
     position: absolute;
-    top: 67px;
+    top: 6%;
     right: 30px;
 }
 
 .sort-menu-close {
     display: block;
-    color: whitesmoke;
+    color: rgb(10, 10, 10);
     cursor: pointer;
     position: absolute;
-    top: 67px;
+    top: 6%;
     right: 30px;
 }
 
@@ -1603,6 +1714,23 @@ img {
 
 
 .product-page-button {
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    padding: 8px 30px;
+    width: 230px;
+    border-radius: 2px;
+    background: rgb(7, 7, 7);
+    color: rgb(250, 249, 249);
+    font-size: 1em;
+    padding: 10px 0px;
+    font-family: 'Archivo Narrow';
+    font-weight: 400;
+    z-index: 9;
+}
+
+.add-to-cart-button {
     text-decoration: none;
     cursor: pointer;
     text-align: center;
