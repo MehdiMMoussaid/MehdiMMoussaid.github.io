@@ -366,6 +366,7 @@ function addItemToCart(product){
 
     const qtyBtn = document.createElement("quantity-input");
     qtyBtn.classList.add("quantity-input");
+
     const qtyPlus = document.createElement("button");
     qtyPlus.classList.add("plus");
     qtyPlus.textContent = "+"
@@ -378,7 +379,21 @@ function addItemToCart(product){
     qty.classList.add("cart-text")
     qty.textContent = "QTY 1"
 
-    qtyBtn.append(qtyPlus, qty, qtyMinus);
+    let quantity = 1;
+
+    qtyPlus.addEventListener("click", function() {
+        quantity = quantity + 1;
+        qty.textContent = `QTY ${quantity}`;
+    });
+
+        qtyMinus.addEventListener("click", function() {
+        if (quantity > 1) {
+            quantity = quantity - 1;
+            qty.textContent = `QTY ${quantity}`;
+        }
+    })
+
+    qtyBtn.append(qtyMinus, qty, qtyPlus);
 
 
     const removeBtn = document.createElement("button");
@@ -440,7 +455,7 @@ function saveCart(cartList) {
             image: item.querySelector(".cart-item-image").getAttribute("src"),
             name: item.querySelector(".cart-text").textContent,
             price: item.querySelector(".cart-price-text").textContent,
-            size: item.querySelector(".cart-item-size").textContent
+            size: item.querySelector(".cart-item-size").textContent.replace(/^SIZE:\s*/, "")
         };
     });
 
@@ -458,7 +473,7 @@ function updateCheckoutTotal (cartList) {
         total += Number(item.dataset.price);
     }
 
-    checkoutTotal.textContent = `Total: ${new Intl.NumberFormat("en-CA", {
+    checkoutTotal.textContent = `Subtotal: ${new Intl.NumberFormat("en-CA", {
         style: "currency",
         currency: "CAD"
     }).format(total)}`;

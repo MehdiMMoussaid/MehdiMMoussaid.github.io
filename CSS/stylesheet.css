@@ -1541,10 +1541,13 @@ img {
     font-size: 16px;
     color: rgb(0, 0, 0);
     padding: 15px;
+    z-index: 10;
     padding-left: 100px;
     display: flex;
-    position: absolute;
-    top: 5%;
+    flex: 0 0 50px;
+    position: relative;
+    margin-top: 56px;
+    padding: 0 56px 0 16px;
     width: 100%;
     border-bottom: 1px solid whitesmoke;
     pointer-events: none;
@@ -1553,34 +1556,43 @@ img {
 .checkout-total {
     font-family: 'Archivo Narrow';
     color: black;
+    flex: 0 0 auto;
     z-index: 10;
+    width: 100%;
+    top: auto;
+    padding-left: 39px;
     font-weight: 700;
     font-size: 16px;
-    position: relative;
+    margin: 0;
+    margin-bottom: 10px;
+    position: static;
     align-self: center;
-    top: 90px;
 }
 
 .qtybtn {
     border:none;
     text-decoration: none;
     background: white;
+    margin: 10px;
 }
 
 .quantity-input {
-    position: relative;
-    z-index: 11;
+    position: absolute;
+    bottom: 5px;
+    z-index: 11;    
     padding: 10px 0px 10px 0px;
     display: flex;
     flex-direction: row;
     height: 30px;
     width: 100px;
+    gap: 5px;
     background: white;
     align-items: center;
     justify-content: center;
-    top: auto;
 }
 
+.plus {
+}
 .plus, .minus {
     background: white;
     border: none;
@@ -1590,33 +1602,36 @@ img {
     position: fixed;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     right: 0;
     overflow-x: hidden;
     z-index: 82;
     width: 0px;
     top:0;
     background-color: rgb(255, 255, 255);
-    height: 100vh;
+    height: 100dvh;
     transition: 0.3s;
 }
 
 .cart-btn {
-    position: absolute;
-    bottom: 0;
+    position: static;
+    flex: 0 0 auto;
+    position: relative;
+    top: auto;
     background: whitesmoke;
     padding: 13px;
     color: #050505;
     z-index: 9;
     font-size: 16px;
     font-weight: 600;
-    width: 100%;
+    width: 90%;
     justify-content: center;
+    text-align: center;
+    align-self: center;
     text-align: center;
     cursor: pointer;
     text-decoration: none;
-    margin-top: 10px;
-        margin: 0px 20px 20px 20px;
+    margin: 0 0 16px;
 }
 
 .cart-item-size {
@@ -1630,17 +1645,19 @@ img {
 }
 
 .cart-items-list {
+    flex: 1;
     display: flex;
-    position: relative;
+    position: static;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
     text-transform: uppercase;
     min-width: 100%;
-    min-height: 60%;
+    min-height: 0;
+    margin-bottom: 100px;
     z-index: 8;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
-    top: 15%;
+    top: auto;
 }
 
 .cart-item {
@@ -1648,7 +1665,6 @@ img {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    background-color: rgb(236, 232, 232);
     margin: 6px;
     padding: 8px 10px 8px 10px;
     min-height: 200px;
@@ -1660,6 +1676,8 @@ img {
     display: block;
     overflow-x: hidden;
     white-space: nowrap;
+    align-items: center;
+    justify-content: center;
     font-family: "Helvetica";
     font-size: 12px;
     color: black;
@@ -1682,8 +1700,8 @@ img {
 
 .cart-item-remove {
     position: absolute;
-    bottom: 5px;
-    right: 15px;
+    bottom: 10px;
+    right: 20px;
     height: 20px;
     color: black;
     background: none;
@@ -1697,17 +1715,20 @@ img {
 }
 
 .cart-empty {
+    position: static;
     font-family: 'Archivo Narrow';
     color: black;
+    width: 100%;
     font-size: 24px;
     position: relative;
-    align-self: center;
-    top: 100px;
+    align-self: stretch;
+    margin-block: auto;
+    text-align: center;
 }
 
 .cart-item-image {
-    width: 100px;
-    height: 100px;
+    width: 175px;
+    height: 175px;
     padding-top: 2px;
     margin-top: 2px;
     background-color: rgb(233, 230, 230);
@@ -1715,11 +1736,12 @@ img {
 
 .cart-menu-close {
     display: block;
+    z-index: 11;
     color: rgb(0, 0, 0);
     cursor: pointer;
     position: absolute;
     top: 6%;
-    right: 30px;
+    right: 20px;
 }
 
 .sort-menu-close {
@@ -1780,7 +1802,7 @@ img {
     display: flex;
     min-height: 10vh;
     height: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
     align-items: center;
     justify-items: center;
     background-color: white;
