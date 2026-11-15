@@ -296,20 +296,45 @@ sizeBtn.forEach(function(button) {
 const addToCartBtn = document.querySelector(".add-to-cart-button");
 if (addToCartBtn) {
     addToCartBtn.addEventListener("click", function() {
-        addItemToCart({image: "product3.3.jpg", name: "CART ITEM 1", price: "$99.99 CAD"});
-        openCartMenu();
+        const selectedSize = document.querySelector(".size-buttons.is-active");
+        if (!selectedSize) {
+            alert("Selected a size first.");
+            return;
+        }
+
+        addItemToCart({image: "product3.3.jpg", name: "CART ITEM 1", size: selectedSize.textContent.trim(), price: "$99.99 CAD"});
+            openCartMenu();
+
     });
+}
+
+function updateCartTitle(cartList) {
+    const cartTitle = document.querySelector(".cart-menu-title");
+    if (!cartTitle || !cartList) return;
+
+    const itemCount = cartList.querySelectorAll(".cart-item").length;
+    cartTitle.textContent = `BAG (${itemCount})`;
+
 }
 
 document.addEventListener("DOMContentLoaded", function() {
     const cartList = document.querySelector(".cart-items-list");
-    if (cartList && !cartList.querySelector(".cart-item")) {
-        const emptyMessage = document.createElement("h1");
-        emptyMessage.classList.add("cart-empty");
-        emptyMessage.textContent = ("Your cart is empty.");
-        cartList.append(emptyMessage);
+    if (!cartList) return;
+
+    const savedProducts = JSON.parse(localStorage.getItem("cartItems") || "[]");
+    for (const product of savedProducts){
+        addItemToCart(product);
     }
-})
+
+    if (!cartList.querySelector(".cart-item")) {
+            const emptyMessage = document.createElement("h1");
+            emptyMessage.classList.add("cart-empty");
+            emptyMessage.textContent = ("Your cart is empty.");
+            cartList.append(emptyMessage);
+    }
+    updateCartTitle(cartList);
+    updateCheckoutTotal(cartList);
+});
 
 function addItemToCart(product){
     const cartList = document.querySelector(".cart-items-list");
@@ -318,20 +343,43 @@ function addItemToCart(product){
 
     const item = document.createElement("div"); 
     item.classList.add("cart-item");
+    item.dataset.price = product.price.replace(/[^\d.]/g, "");
 
     const image = document.createElement("img"); 
     image.classList.add("cart-item-image");
     image.src = product.image;
 
     const details = document.createElement("div");
+    details.classList.add("cart.item-details");
 
     const name = document.createElement("h2"); 
     name.classList.add("cart-text");
     name.textContent = product.name;
 
+    const size = document.createElement("h2")
+    size.classList.add("cart-item-size")
+    size.textContent = `SIZE: ${product.size}`
+
     const price = document.createElement("h2");
     price.classList.add("cart-price-text");
     price.textContent = product.price;
+
+    const qtyBtn = document.createElement("quantity-input");
+    qtyBtn.classList.add("quantity-input");
+    const qtyPlus = document.createElement("button");
+    qtyPlus.classList.add("plus");
+    qtyPlus.textContent = "+"
+
+    const qtyMinus = document.createElement("button");
+    qtyMinus.classList.add("minus");
+    qtyMinus.textContent = "-";
+
+    const qty = document.createElement("h6");
+    qty.classList.add("cart-text")
+    qty.textContent = "QTY 1"
+
+    qtyBtn.append(qtyPlus, qty, qtyMinus);
+
 
     const removeBtn = document.createElement("button");
     removeBtn.classList.add("cart-item-remove");
@@ -345,39 +393,76 @@ function addItemToCart(product){
             emptyMessage.textContent = ("Your cart is empty.");
             cartList.append(emptyMessage);
         }
+        updateCartTitle(cartList)
+        updateCheckoutTotal(cartList);
+        saveCart(cartList);
     })
 
-    details.append(name, price);
+    details.append(name, size, price, qtyBtn);
     item.append(image, details, removeBtn);
     cartList.append(item);
+    updateCartTitle(cartList);
+    updateCheckoutTotal(cartList);
+    saveCart(cartList);
 }
+
 const grids = document.querySelectorAll(".store-product-grid");
 const firstGridLimit = 6;
 const products = [
-({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", price: "$72.99 CAD" }),
-({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", price: "$89.99 CAD" }),
-({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", price: "$99.99 CAD" }),
+({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
+({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
+({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
 
-({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", price: "$89.99 CAD" }),
-({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", price: "$72.99 CAD" }),
-({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", price: "$99.99 CAD" }),
+({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
+({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
+({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
 
-({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", price: "$99.99 CAD" }),
-({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", price: "$89.99 CAD" }),
-({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", price: "$72.99 CAD" }),
+({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
+({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
+({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
 
-({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", price: "$72.99 CAD" }),
-({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", price: "$89.99 CAD" }),
-({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", price: "$99.99 CAD" }),
+({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
+({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
+({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
 
-({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", price: "$89.99 CAD" }),
-({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", price: "$72.99 CAD" }),
-({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", price: "$99.99 CAD" }),
+({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
+({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
+({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
 
-({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", price: "$99.99 CAD" }),
-({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", price: "$89.99 CAD" }),
-({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", price: "$72.99 CAD" })
+({mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
+({mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
+({mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" })
 ]
+
+function saveCart(cartList) {
+    const products = Array.from(cartList.querySelectorAll(".cart-item")).map(function(item) {
+        return {
+            image: item.querySelector(".cart-item-image").getAttribute("src"),
+            name: item.querySelector(".cart-text").textContent,
+            price: item.querySelector(".cart-price-text").textContent,
+            size: item.querySelector(".cart-item-size").textContent
+        };
+    });
+
+    localStorage.setItem("cartItems", JSON.stringify(products));
+}
+
+
+function updateCheckoutTotal (cartList) {
+    const checkoutTotal = document.querySelector(".checkout-total"); 
+    if(!cartList || !checkoutTotal) return;
+    let total = 0;
+
+    const nitems = cartList.querySelectorAll(".cart-item");
+    for (const item of nitems){
+        total += Number(item.dataset.price);
+    }
+
+    checkoutTotal.textContent = `Total: ${new Intl.NumberFormat("en-CA", {
+        style: "currency",
+        currency: "CAD"
+    }).format(total)}`;
+}
 
 function addToStore(product, storeList) {
     if (!storeList) return;
@@ -403,7 +488,7 @@ function addToStore(product, storeList) {
         imageCarousel.append(image);
     });
 
-
+    
     const linkOverlay = document.createElement("a");
     linkOverlay.classList.add("image-link-overlay");
     linkOverlay.href= "product-page.html";
@@ -422,9 +507,9 @@ function addToStore(product, storeList) {
     const nextBtn = document.createElement("button");
     nextBtn.classList.add("product-arrow-button-next");
 
-    imageContainer.append(mainImage, imageCarousel, prevBtn, nextBtn, linkOverlay)
-    item.append(imageContainer, name, price)
-    storeList.append(item)
+    imageContainer.append(mainImage, imageCarousel, prevBtn, nextBtn, linkOverlay);
+    item.append(imageContainer, name, price);
+    storeList.append(item);
 }
 
 products.forEach(function (product, index) {
