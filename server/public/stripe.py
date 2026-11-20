@@ -5,8 +5,9 @@ server.py
 Stripe Sample.
 Python 3.6 or newer required.
 """
-from flask import Flask, jsonify, request
+import os
 
+from flask import Flask, jsonify, request
 import stripe
 # This is your test secret API key.
 client = stripe.StripeClient(

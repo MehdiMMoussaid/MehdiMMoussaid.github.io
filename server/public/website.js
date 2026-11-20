@@ -286,13 +286,13 @@ document.addEventListener("DOMContentLoaded", function() {
             if (scrollingUp || currentScrollY <= 0) {
             navBar.classList.remove("is-hidden");
             storeBar.style.top = "52px";
-            storeTitle.style.fontSize = "18px";
+            storeTitle.style.fontSize = "15px";
 
 
         } else {
             navBar.classList.add("is-hidden");
             storeBar.style.top = "0px";
-            storeTitle.style.fontSize = "14px";
+            storeTitle.style.fontSize = "13px";
         } 
 
         lastScrollY = currentScrollY;
