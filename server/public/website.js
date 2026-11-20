@@ -217,7 +217,7 @@ if (sortBtn && sortMenu && sortCloseBtn) {
     const cartMenu = document.querySelector("#cart-menu");
     const cartCloseBtn = document.querySelector(".cart-menu-close");
     function openCartMenu() {
-        cartMenu.style.width = window.innerWidth <= 768 ? "70%" : "60%";
+        cartMenu.style.width = window.innerWidth <= 768 ? "100%" : "60%";
         }
 
     cartBtn.addEventListener("click", function(){
