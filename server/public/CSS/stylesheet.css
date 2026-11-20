@@ -275,7 +275,7 @@ nav ul li a {
     width: 100%;
     min-height: 60vh;
     z-index: 2;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -550,7 +550,7 @@ nav ul li a {
 
 .store-product-title {
     color: rgb(16, 15, 15);
-    font-family: "Helvetica";
+    font-family: "Archivo Narrow";
     font-weight: 700;
     width: 100%;
     font-size: 12px;
@@ -569,7 +569,7 @@ nav ul li a {
     font-size: 12px;
     font-weight: 300;
     color: rgba(0, 0, 0, 0.9);
-    padding-top: 0px;
+    margin-top: 4px;
     line-height: 1.06em;
 }
 
@@ -641,7 +641,7 @@ nav ul li a {
 /* 06 Chromia — brushed-metal letters with a passing sheen */
 .fx-chrome {
   font: 600 clamp(2rem, 8vw, 6rem)/1.1 "Archivo Narrow", "JetBrains Mono" monospace, ;
-  font-size: 10em;
+  font-size: 5em;
   letter-spacing: .06em;
   background: linear-gradient(105deg,
       color-mix(in srgb, var(--ink) 45%, transparent) 0 38%,
@@ -663,9 +663,10 @@ nav ul li a {
 
 /* 07 Lens-Drift — letters slip in and out of focus, one after another */
 .fx-focus {
-  font: 600 4.3em "Archivo Narrow", "JetBrains Mono", monospace;
+  font: 600 300 "Archivo Narrow", "JetBrains Mono", monospace;
   letter-spacing: .08em;
   color: var(--ink);
+  animation: fx-focus 4s ease-in-out infinite;
 }
 .fx-focus b {
   font-weight: inherit;
@@ -1213,6 +1214,7 @@ nav ul li a {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
     display: none;
 }
@@ -1228,14 +1230,11 @@ nav ul li a {
 }
 
 #store-title {
-    position: absolute;
     white-space: none;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 32px;
     font-weight: 700;
     z-index:5;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 
@@ -1250,6 +1249,7 @@ nav ul li a {
 .collections-image {
     display: block;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    filter:grayscale(60%);
     width: 100%;
     aspect-ratio: 2/3;
     object-fit: cover;
@@ -1260,7 +1260,7 @@ nav ul li a {
 }
 
 .collections-image:hover {
-    transform: scale(1.01);
+    filter:grayscale(0%);
     filter: brightness(1.08);
 }
 
@@ -1383,9 +1383,9 @@ footer ul li {
 #footer-bg-text {
     font-family: 'Archivo Narrow';
     font-weight: 700;
-    color: rgba(14, 13, 13, 0);
+    color: rgba(255, 255, 255, 0.085);
     position: absolute;
-    top: 50%;
+    top: 100%;
     transform: translateY(-50%);
     display: flex;
     justify-content: center;
@@ -1502,8 +1502,9 @@ img {
 }
 
 .store-subtitle {
-    font-family: "Archivo Narrow";
+    font-family: "Helvetica";
     font-size: 10px;
+    font-weight: 600;
     padding: 15px;
     padding-left: 100px;
     display: flex;
@@ -1515,13 +1516,13 @@ img {
 .store-title-wrapper {
     width: 100%;
     position: sticky;
-    margin-top: 45px;
     top: 52px;
     width: 100%;
     z-index: 77;
     border-top: 1px solid whitesmoke;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     background-color: white;
 }
 
@@ -1530,7 +1531,7 @@ img {
     font-family: 'Helvetica';
     color: rgb(0, 0, 0);
     white-space: nowrap;
-    padding: 8px 13px;
+    padding: 8px;
     margin-right: 55px;
     background-color: rgb(250, 250, 250);
     cursor: pointer;
@@ -2145,7 +2146,7 @@ img {
     }
 
     .store-product-title {
-    padding: 0px;
+    padding-top: 0px;
     margin-top: 20px;
     line-height: 1.06em;
     min-height: 2.06em;
@@ -2184,7 +2185,8 @@ img {
     .store-title-wrapper {
         width: 100%;
         position: sticky;
-        top: 52px;
+        margin-top: none;
+        top: 0;
         display: inline-flex;
         align-items: center;
     }
@@ -2195,13 +2197,13 @@ img {
     font-size: 9px;
     color: rgb(0, 0, 0);
     white-space: nowrap;
-    padding: 6px 19px;
+    padding: 6px 10px;
     margin-right: 9px;
 }
 
     .store-subtitle {
     display: block;
-    font-family: "Archivo Narrow";
+    font-family: "Helvetica";
     font-size: 16px;
     padding-left: 19px;
     padding-top: 8px;
@@ -2357,6 +2359,10 @@ img {
     #footer-list {
         position: static;
         flex-direction: row;
+    }
+
+    #footer-bg-text {
+        display: none;
     }
 
     .footer-list-items {

@@ -198,7 +198,7 @@ const sortCloseBtn = document.querySelector(".sort-menu-close")
 if (sortBtn && sortMenu && sortCloseBtn) {
     sortBtn.addEventListener("click", function() {
         function openSortMenu() {
-            sortMenu.style.width = "40%";
+            sortMenu.style.width = window.innerWidth <= 768 ? "70%" : "60%";
         }
         openSortMenu();
     });
