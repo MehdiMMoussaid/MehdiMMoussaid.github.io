@@ -153,7 +153,7 @@ nav ul li a {
     font-family: 'Helvetica';
     font-size: 12px;
     font-weight: 600;
-    color: rgb(39, 38, 38);
+    color: rgb(87, 87, 87);
 }
 
    nav ul li a:hover{ 
@@ -161,7 +161,7 @@ nav ul li a {
     color: rgb(0, 0, 0);
    }
    nav ul li a:active {
-    color: rgb(0, 0, 0);
+    color: rgb(7, 7, 7);
 }
 
 .promo-bar {
@@ -1210,7 +1210,7 @@ nav ul li a {
 
 #store-title-section {
     position: relative;
-    height: 20vh;
+    height: 2vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -1539,6 +1539,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 200ms;
 }
 .store-sort-btn > span {
   display: inline-flex;
@@ -1595,7 +1596,7 @@ img {
 
 
 .store-sort-btn:hover {
-    background-color:rgb(8, 8, 8);
+    background-color:rgb(146, 109, 109);
     color: whitesmoke;
 }
 
@@ -2117,10 +2118,12 @@ img {
 
     .price-tag {
         font-family:'Helvetica';
-        font-size: 12px;
+        font-size: 11px;
+        padding-left: 10px;
         font-weight: 300;
         color: rgba(0, 0, 0, 0.9);
         padding-top: 0px;
+        margin: 0;
         line-height: 1.06em;
         min-height: 2.12em;
     }
@@ -2146,10 +2149,12 @@ img {
     }
 
     .store-product-title {
-    padding-top: 0px;
-    margin-top: 20px;
-    line-height: 1.06em;
-    min-height: 2.06em;
+    margin-top: 0px;
+    padding-top: 14.3px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    line-height: 0.9rem;
+    height: 2.8rem;
     }
 
     .collapsible {
