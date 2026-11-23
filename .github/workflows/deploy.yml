@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main] # Replace "main" if your default branch has a different name.
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -20,17 +21,19 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Pages
+      - name: Set up GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload site files
+      - name: Upload website files
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./server/public
+          if-no-files-found: error
 
       - name: Deploy to GitHub Pages
         id: deployment
