@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const storeBar = document.querySelector(".store-title-wrapper");
         const storeNavHeight = (navBar.offsetHeight + storeBar.offsetHeight);
         const storeTitle = document.querySelector(".store-subtitle");
-
+        const logo = document.querySelector("#logo");
         let lastScrollY = window.scrollY;
 
         function reactiveStoreBar() {
@@ -287,7 +287,6 @@ document.addEventListener("DOMContentLoaded", function() {
             navBar.classList.remove("is-hidden");
             storeBar.style.top = "52px";
             storeTitle.style.fontSize = "15px";
-
 
         } else {
             navBar.classList.add("is-hidden");
@@ -460,29 +459,29 @@ function addItemToCart(product){
 const grids = document.querySelectorAll(".store-product-grid");
 const firstGridLimit = 6;
 const products = [
-({id: "brazil-away", mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
+({id: "brazil-away", mainImage: "product1.jpg", images: ["product.webp", "product1.jpg"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
 ({id: "canada-nocta", mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
 ({id: "barcelona-away", mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
 
 ({id: "canada-nocta", mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
-({id: "brazil-away", mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
+({id: "brazil-away", mainImage: "product1.jpg", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
 ({id: "barcelona-away", mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
 
 ({id: "barcelona-away", mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
 ({id: "canada-nocta", mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
-({id: "brazil-away", mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
+({id: "brazil-away", mainImage: "product1.jpg", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
 
-({id: "brazil-away", mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
+({id: "brazil-away", mainImage: "product1.jpg", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
 ({id: "canada-nocta", mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
 ({id: "barcelona-away", mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
 
 ({id: "canada-nocta", mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
-({id: "brazil-away", mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
+({id: "brazil-away", mainImage: "product1.jpg", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" }),
 ({id: "barcelona-away", mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
 
 ({id: "barcelona-away", mainImage: "product3.3.jpg", images: ["product3.webp", "product3.3.jpg"], name: "F.C. Barcelona 2026/27 Stadium Away", size:"M", price: "$99.99 CAD" }),
 ({id: "canada-nocta", mainImage: "product2.webp", images: ["product2.2.avif","product2.webp"], name: "Canada x Nocta", size:"M", price: "$89.99 CAD" }),
-({id: "brazil-away", mainImage: "product.webp", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" })
+({id: "brazil-away", mainImage: "product1.jpg", images: ["product1.jpg", "product.webp"], name: "Brazil National Team 2026 Stadium Away", size:"M", price: "$72.99 CAD" })
 ]
 
 function saveCart(cartList) {
@@ -605,3 +604,75 @@ if (productPage) {
     }
 
 }
+
+function addToPromoText(){
+     const promoBar = document.querySelector(".promo-bar");
+    if (!promoBar) return;
+        const scrollingTextItems = [
+            "BUY 2 - FREE SHIPPING CA/US · $15 OFF INTERNATIONAL", 
+            "@mehdiverse", 
+            "BUY 2 - FREE SHIPPING CA/US · $15 OFF INTERNATIONAL",
+            "BUY 2 - FREE SHIPPING CA/US · $15 OFF INTERNATIONAL", 
+            "@mehdiverse", 
+            "BUY 2 - FREE SHIPPING CA/US · $15 OFF INTERNATIONAL"
+        ]; 
+        const track = document.createElement("div");
+        track.className = "promo-bar-track";
+
+        for (let copy = 0; copy < 2; copy++) {
+            const group = document.createElement("div");
+            group.className = "promo-bar-group";
+        
+        scrollingTextItems.forEach(function(text) {
+            textItem = document.createElement("p");
+            textItem.classList.add("promo-bar-text");
+            textItem.textContent = text;
+            group.append(textItem);
+        }); 
+        
+        if (copy === 1) group.setAttribute("aria-hidden", "true");
+        track.append(group);
+    }
+
+    promoBar.replaceChildren(track);
+}
+
+addToPromoText();
+
+function addToScrollingText(){
+    const scrollingBars = document.querySelectorAll(".scrolling-bar");
+
+    scrollingBars.forEach(function(scrollingBar) {
+        const scrollingTextItems = [
+            "welcome to the mehdi verse", 
+            "@mehdiverse", 
+            "welcome to the mehdi verse",
+            "welcome to the mehdi verse", 
+            "@mehdiverse", 
+            "welcome to the mehdi verse"
+        ]; 
+
+        const track = document.createElement("div");
+        track.className = "s-bar-track";
+
+        for (let copy = 0; copy < 2; copy++) {
+            const group = document.createElement("div");
+            group.className = "s-bar-group";
+        
+        scrollingTextItems.forEach(function(text) {
+            textItem = document.createElement("p");
+            textItem.classList.add("s-bar-text");
+            textItem.textContent = text;
+            group.append(textItem);
+        }); 
+        
+        if (copy === 1) group.setAttribute("aria-hidden", "true");
+        track.append(group);
+    }
+
+    scrollingBar.replaceChildren(track);
+    });
+}
+
+
+addToScrollingText();
