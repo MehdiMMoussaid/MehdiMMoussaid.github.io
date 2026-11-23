@@ -309,9 +309,9 @@ nav ul li a {
 
 #section2 {
     background-image:
-    linear-gradient(rgba(0, 0, 0, 0.596), rgba(41, 41, 41, 0.35)),
+    linear-gradient(rgba(0, 0, 0, 0.373), rgba(41, 41, 41, 0.35)),
     url("../Images/521329326.webp");
-    background-position-y: 25%;
+    background-position-y: 50%;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -322,6 +322,10 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    border-top: 40px solid white;
+    border-right: 150px solid white;
+    border-left: 150px solid white;
+    border-bottom: 10px solid white;
 }
 
 #store-promo {
@@ -333,10 +337,6 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
-    background-image:
-    linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.39)),
-    url("../kobe2.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1169,6 +1169,7 @@ nav ul li a {
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
+    display: none;
 }
 
 .image-link-overlay {
@@ -1414,10 +1415,10 @@ nav ul li a {
   max-height: 100%;
   object-fit: cover;
   object-position: center -30%;
-  z-index: -1;
+  z-index: -2;
   border-top: 50px solid white;
-  border-right: 19px solid white;
-  border-left: 19px solid white;
+  border-right: 10% solid white;
+  border-left: 10% solid white;
   border-bottom: 10px solid white;
 }
 
@@ -1622,13 +1623,12 @@ img {
 .store-sort-btn {
     font-size: 11px;
     font-family: 'Helvetica';
-    color: rgb(0, 0, 0);
+        color: rgb(248, 245, 245);
+    background-color:rgb(36, 36, 36);
     white-space: nowrap;
     padding: 8px;
     margin-right: 55px;
-    background-color: rgb(250, 250, 250);
     cursor: pointer;
-    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1689,8 +1689,9 @@ img {
 
 
 .store-sort-btn:hover {
-    background-color:rgb(36, 36, 36);
+    background-color:rgb(15, 15, 15);
     color: whitesmoke;
+    border: 1px soild black;
 }
 
 #sort-menu {
@@ -2277,6 +2278,24 @@ img {
     #store-title-section {
     }
 
+    #store-promo {
+    position: relative;
+    width: 100%;
+    min-height: 45vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image:;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top: 40px solid white;
+    border-right: 35px solid white;
+    border-left: 35px solid white;
+    border-bottom: 10px solid white;
+}
     
 
     #store-title {
@@ -2408,6 +2427,10 @@ img {
         justify-content: center;
         align-items: center;
         min-height: 43vh;
+            border-top: 40px solid white;
+    border-right: 35px solid white;
+    border-left: 35px solid white;
+    border-bottom: 10px solid white;
     }
 
     #section3 {
