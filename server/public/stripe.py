@@ -6,7 +6,12 @@ Stripe Sample.
 Python 3.6 or newer required.
 """
 import os
-
+            "welcome to the mehdi verse", 
+            "@mehdiverse", 
+            "welcome to the mehdi verse",
+            "welcome to the mehdi verse", 
+            "@mehdiverse", 
+            "welcome to the mehdi verse",
 from flask import Flask, jsonify, request
 import stripe
 # This is your test secret API key.

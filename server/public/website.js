@@ -198,7 +198,8 @@ const sortCloseBtn = document.querySelector(".sort-menu-close")
 if (sortBtn && sortMenu && sortCloseBtn) {
     sortBtn.addEventListener("click", function() {
         function openSortMenu() {
-            sortMenu.style.width = window.innerWidth <= 768 ? "70%" : "60%";
+            sortMenu.style.width = window.innerWidth <= 768 ? "70%" : "20%";
+            sortMenu.style.height = window.innerWidth <= 768 ? "50vw" : "25vw";
         }
         openSortMenu();
     });
@@ -206,6 +207,7 @@ if (sortBtn && sortMenu && sortCloseBtn) {
     sortCloseBtn.addEventListener("click", function(){
         function closeSortMenu() {
         sortMenu.style.width = "0px";
+        sortMenu.style.height = "0px";
         }
         closeSortMenu();
     
@@ -218,6 +220,7 @@ if (sortBtn && sortMenu && sortCloseBtn) {
     const cartCloseBtn = document.querySelector(".cart-menu-close");
     function openCartMenu() {
         cartMenu.style.width = window.innerWidth <= 768 ? "100%" : "60%";
+        lenis.stop();
         }
 
     cartBtn.addEventListener("click", function(){
@@ -227,6 +230,7 @@ if (sortBtn && sortMenu && sortCloseBtn) {
     cartCloseBtn.addEventListener("click", function(){
         function closeCartMenu() {
         cartMenu.style.width = "0px";
+        lenis.start();
         }
         closeCartMenu();
     });
@@ -645,11 +649,14 @@ function addToScrollingText(){
     scrollingBars.forEach(function(scrollingBar) {
         const scrollingTextItems = [
             "welcome to the mehdi verse", 
+            {type: "image", src: "mehdi.png"},
             "@mehdiverse", 
             "welcome to the mehdi verse",
+            {type: "image", src: "mehdi.png"},
             "welcome to the mehdi verse", 
             "@mehdiverse", 
-            "welcome to the mehdi verse"
+            {type: "image", src: "mehdi.png"},
+            "welcome to the mehdi verse",
         ]; 
 
         const track = document.createElement("div");
@@ -658,14 +665,28 @@ function addToScrollingText(){
         for (let copy = 0; copy < 2; copy++) {
             const group = document.createElement("div");
             group.className = "s-bar-group";
-        
-        scrollingTextItems.forEach(function(text) {
-            textItem = document.createElement("p");
-            textItem.classList.add("s-bar-text");
-            textItem.textContent = text;
-            group.append(textItem);
-        }); 
-        
+
+        let i = 0;
+
+        scrollingTextItems.forEach(function(item) {
+            if (typeof item === "string") {
+                const textItem = document.createElement("p");
+                textItem.classList.add("s-bar-text");
+                textItem.textContent = item;
+                group.append(textItem);
+                i = i + 1
+            } else if (item.type === "image") {
+                const imageItem = document.createElement("img");
+                imageItem.classList.add("s-bar-image");
+                imageItem.src = item.src;
+                group.append(imageItem);
+                i = i + 1
+            } else {
+            return;
+        }
+            }); 
+            
+
         if (copy === 1) group.setAttribute("aria-hidden", "true");
         track.append(group);
     }

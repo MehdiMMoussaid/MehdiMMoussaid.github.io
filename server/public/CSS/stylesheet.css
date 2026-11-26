@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bytesized&family=Stalinist+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
 
 html, body{
       overscroll-behavior-x: none;
@@ -196,9 +197,11 @@ nav ul li a {
 
 .s-bar-group {
     display: flex;
-    flex: 0 0 100vw;
-    justify-content: space-around;
+    flex: 0 0 max-content;
+    justify-content: flex-start;
     align-items: center;
+    gap: 3rem;
+    padding-inline: 3rem;
 }
 
 .s-bar.is-hidden {
@@ -209,16 +212,22 @@ nav ul li a {
 .s-bar-text {
     width: auto;
     flex: 0 0 auto;
-    font-weight:700;
-    font-size:  5.5vw;
-    padding-left: 100px;
+    font-weight: 700;
+    font-size:  2vw;
     display: flex;
     white-space: nowrap;
     color: rgb(1, 1, 1);
     justify-content: center;
     align-items: center;
+    text-transform: lowercase;
     font-family: 'Stalinist One';
     background-image: none;
+}
+
+.s-bar-image {
+    width: auto;
+    height: 125px;
+    filter: invert(100%);
 }
 
 .promo-bar {
@@ -324,10 +333,6 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border-top: 40px solid white;
-    border-right: 150px solid white;
-    border-left: 150px solid white;
-    border-bottom: 10px solid white;
 }
 
 #store-promo {
@@ -353,6 +358,68 @@ nav ul li a {
     padding-left: 10%;
     padding-right: 10%;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.section4 {
+    display: flex;
+    background-color: rgb(17, 16, 16);
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    gap: 0;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.section4-1 {
+    display: flex;
+    background-color: rgb(17, 16, 16);
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    gap: 0;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.s4-image {
+    display: inline-block;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    filter:grayscale(60%);
+    flex: 0 0 50%;
+    height: 100%;
+    min-width: 0;
+    object-fit: cover;
+    border: 0;
+    cursor: pointer;
+}
+
+.s4-image2 {
+    display: block;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    filter:grayscale(60%);
+    flex: 0 0 50%;
+    width: 100%;
+    z-index: 0;
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+    border: 0;
+    cursor: pointer;
+}
+
+.section5 {
+    display: none;
+    background-color: rgb(17, 16, 16);
+    width: 100%;
+    height: 150vh;
+    z-index: 2;
+    gap: 0;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -467,13 +534,34 @@ nav ul li a {
     pointer-events: none;
 }
 
-.section3-text {
-    font-size: 2em;
-    font-family: "Helvetica";
+
+.maintitle3 {
+    font-family: "Stalinist One";
+    font-size: 3em;
+    width: 100%;
     padding-bottom: 15px;
+    padding-left: 5px;
+    padding-top: 50px;
+    width: 100%;
+    pointer-events: none;
+}
+
+.section3-text {
+    font-size: 1.7em;
+    font-family: "Helvetica";
+    padding-bottom: 14px;
     padding-left: 5px;
     width: 100%;
     color: rgb(12, 12, 12);
+    pointer-events: none;
+}
+
+.section3-text2 {
+    font-size: 1em;
+    font-family: "Helvetica";
+    padding: 100px;
+    width: 100%;
+    color: rgb(248, 247, 247);
     pointer-events: none;
 }
 
@@ -764,19 +852,18 @@ nav ul li a {
 
 /* 06 Chromia — brushed-metal letters with a passing sheen */
 .fx-chrome {
-  font: 600 clamp(2rem, 8vw, 6rem)/1.1 "Archivo Narrow", "JetBrains Mono" monospace, ;
-  font-size: 5em;
+  font: 600 clamp(2rem, 8vw, 6rem)/1.1 "JetBrains Mono" monospace, ;
   letter-spacing: .06em;
   background: linear-gradient(105deg,
       color-mix(in srgb, var(--ink) 45%, transparent) 0 38%,
       var(--ink) 47%,
-      #fff 50%,
+      #ffffff 50%,
       var(--ink) 53%,
       color-mix(in srgb, var(--ink) 45%, transparent) 62% 100%
     ) 0 0 / 260% 100%;
   -webkit-background-clip: text;
   background-clip: text;
-  color: rgba(161, 159, 159, 0.603);
+  color: rgba(66, 63, 63, 0.437);
   animation: fx-chrome 2.8s ease-in-out infinite;
 }
 
@@ -980,18 +1067,20 @@ nav ul li a {
         color: transparent;
     white-space: nowrap;
     padding: 8px;
-    font-size: 5vw;
+    font-size: 4vw;
     z-index: 9;
     left: 0;
     width: 100%;
     text-align: center;
-    font-family: "Archivo Narrow";
+    font-family: "Instrument Serif";
+    font-weight: 100;
+    text-transform: uppercase;
     cursor: pointer;
-    animation: fx-jitter 3.5s steps(2) infinite;
 }
 
 .slide-title::before {
   content: attr(data-text);
+  font-family: "Inter Tight";
   position: absolute;
   top: 0;
   left: 0;
@@ -1001,13 +1090,14 @@ nav ul li a {
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
   transform: translate(-2px, -2px);
   color: #0f0;
-  text-shadow: 0 0 5px rgb(255, 230, 0), 0 0 15px rgb(255, 217, 0);
 }
 
 .slide-title::after{
   content: attr(data-text);
+  font-family: "Inter Tight";
   position: absolute;
   font-size: 2em;
+  font-weight: 700;
   top: 100%;
   left: 0;
   z-index: 4;
@@ -1153,9 +1243,8 @@ nav ul li a {
 .slide-title:hover {
     position: absolute;
     color: rgb(238, 238, 238);
-    white-space: nowrap;
     cursor: pointer;
-    z-index: 9;
+    transition: 500ms;
 }
 
 #btn {
@@ -1453,7 +1542,13 @@ nav ul li a {
   object-fit: cover;
   object-position: center;
   z-index: -2;
-  border-top: 82px solid whitesmoke;
+  border: 0;
+  border-top: 82px solid rgb(255, 255, 255);
+    --store-side-border: 19px;
+    box-sizing: border-box;
+    border-left: var(--store-side-border) solid white;
+    border-right: var(--store-side-border) solid white;
+
 }
 
 audio{
@@ -1689,14 +1784,14 @@ img {
 
 .sort-menu-title {
     position: relative;
-    font-family: "Archivo Narrow";
-    font-weight: 500;
-    font-size: 12px;
+    font-family: "Helvetica";
+    font-weight: 700;
+    font-size: 16px;
     color: rgb(0, 0, 0);
-    padding: 15px;
-    padding-left: 10%;
+    padding: 10px;
+    padding-left: 5%;
     display: flex;
-    top: 52px;
+    top: 35px;
     width: 100%;
     pointer-events: none;
 }
@@ -1704,20 +1799,19 @@ img {
 .sort-menu-subtitle {
     position: static;
     font-family: "Archivo Narrow";
-    font-weight: 300;
-    font-size: 12px;
+    font-weight: 700;
+    font-size: 16px;
     color: rgb(0, 0, 0);
     padding-top: 75px;
     padding-bottom: 17px;
-    padding-left: 10%;
+    padding-left: 5%;
     display: flex;
     width: 100%;
     pointer-events: none;
 }
 
 .sort-container {
-    border: 1px solid black;
-    width: 85%;
+    width: 95%;
     height: auto;
 }
 
@@ -1729,17 +1823,19 @@ img {
 }
 
 #sort-menu {
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 82;
-    width: 0px;
-    right: 0;
+    width: 5%;
+    right: 3%;
+    z-index: 10;
     overflow-x: hidden;
-    top:0;
-    background-color: rgb(255, 255, 255);
-    height: 100vh;
+    top: 100%;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    height: 0;
     transition: 0.3s;
 }
 
@@ -2346,7 +2442,11 @@ img {
         top: 0;
         display: inline-flex;
         align-items: center;
-        border : 1px solid black;
+        box-sizing: border-box;
+        display: flex;
+        width: calc(100% - var(--store-side-border) - var(--store-side-border));
+        margin-inline: auto;
+        justify-content: center;
     }
 
 
@@ -2472,6 +2572,38 @@ img {
     #section3 {
     }
 
+    .section3-text2 {
+        padding: 0;
+        text-align: left;
+        font-size: 14px;
+        line-height: 1.3rem;
+        font-weight: 600;
+        padding-left: 200px;
+        padding-right: 10px;
+    }
+
+    .maintitle2 {
+        font-size: 30px;
+        color: rgba(145, 145, 145, 0.607);
+        padding-left: 200px;
+        padding-right: 60px;
+    }
+
+    .section4 {
+    }
+
+    .section4-1 {
+    display: none;
+    background-color: rgb(17, 16, 16);
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    gap: 0;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
     .slide-title {
         font-size: 3.5em;
         background-color: rgba(255, 255, 255, 0);
@@ -2479,11 +2611,6 @@ img {
         width: 100%;
         white-space: wrap;
         text-align: center;
-    }
-
-    .slide-title:hover {    font: 600 clamp(2rem, 8vw, 6rem)/1.1 "JetBrains Mono", monospace;
-        font-size: 3.5em;  
-        white-space: wrap;
     }
 
     #btn {
@@ -2518,10 +2645,6 @@ img {
         width: 100%;
         height: auto;
         margin: 0;
-    }
-
-    .fx-chrome {
-        font-size: 4em;
     }
 
     #footer-list {
@@ -2765,10 +2888,13 @@ img {
 
 #storebg {
     height: 40vh;
-    border-top: 80px solid white;
-    border-right: 19px solid white;
-    border-left: 19px solid white;
-    border-bottom: 10px solid white;
+    --store-side-border: 19px;
+    box-sizing: border-box;
+    width: 100%;
+    border-left: var(--store-side-border) solid white;
+    border-right: var(--store-side-border) solid white;
+    
+
 }
 
     .slideshow-arrow-button-next{
