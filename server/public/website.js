@@ -644,7 +644,7 @@ function addToPromoText(){
 addToPromoText();
 
 function addToScrollingText(){
-    const scrollingBars = document.querySelectorAll(".scrolling-bar");
+    const scrollingBars = document.querySelectorAll(".scrolling-bar, .scrolling-bar2");
 
     scrollingBars.forEach(function(scrollingBar) {
         const scrollingTextItems = [
@@ -654,9 +654,7 @@ function addToScrollingText(){
             "welcome to the mehdi verse",
             {type: "image", src: "mehdi.png"},
             "welcome to the mehdi verse", 
-            "@mehdiverse", 
             {type: "image", src: "mehdi.png"},
-            "welcome to the mehdi verse",
         ]; 
 
         const track = document.createElement("div");
@@ -671,16 +669,20 @@ function addToScrollingText(){
         scrollingTextItems.forEach(function(item) {
             if (typeof item === "string") {
                 const textItem = document.createElement("p");
-                textItem.classList.add("s-bar-text");
-                textItem.textContent = item;
-                group.append(textItem);
-                i = i + 1
+                    const isSecondBar = scrollingBar.classList.contains("scrolling-bar2");
+                    textItem.classList.add(isSecondBar ? "s-bar-text2" : "s-bar-text");
+                    textItem.textContent = item;
+                    group.append(textItem);
+                    i = i + 1
+
             } else if (item.type === "image") {
-                const imageItem = document.createElement("img");
-                imageItem.classList.add("s-bar-image");
-                imageItem.src = item.src;
-                group.append(imageItem);
-                i = i + 1
+                    const imageItem = document.createElement("img");
+                    const isInverted = scrollingBar.classList.contains("scrolling-bar2");
+                    imageItem.classList.add(isInverted ? "s-bar-image2" : "s-bar-image" );
+                    imageItem.src = item.src;
+                    group.append(imageItem);
+                    i = i + 1
+
             } else {
             return;
         }
